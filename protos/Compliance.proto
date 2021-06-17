@@ -1,0 +1,69 @@
+/*
+Copyright IBM Corp. 2016 All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+syntax = "proto3";
+
+
+option go_package = "github.com/hyperledger/fabric/protos/compliance";
+option java_package = "org.hyperledger.fabric.protos.compliance";
+
+package protos;
+
+message CProof {
+    string tx_id = 1;
+    repeated string inputs = 2;
+
+    enum CSTATE {
+        SATISFIED = 0;
+        UNSATISFIED = 1;
+    }
+    repeated CSTATE status = 3;
+    string worldstate_hash = 4;
+    Binding binding = 5;
+    repeated Rule rules = 6;
+    repeated Data datas = 7;
+    string func_name = 8;
+    string peer_signature = 9;
+    string tee_pk = 10;
+    string tee_signature = 11;
+    string tee_cert = 12;
+    repeated string query = 13;
+}
+
+message Binding {
+    string id = 1;
+    string version = 3;
+}
+
+
+message Rule {
+    string rule_file = 1;
+    string rule_index = 2;
+    string version = 3;
+}
+
+message Data {
+    string entity_name = 1;
+    string entity_value = 2;
+    enum SOURCE {
+        WS = 0; // data from wset in the tx;
+        ON = 1; // data from chain during compliance;
+        OFF = 2; // data from off-chain during compliance;
+    }
+    SOURCE source = 3;
+}
+
+

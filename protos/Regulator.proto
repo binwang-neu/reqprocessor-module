@@ -1,0 +1,75 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option go_package = "github.com/hyperledger/fabric/protos/regulator";
+option java_package = "org.hyperledger.fabric.protos.regulator";
+
+package protos;
+
+import "Compliance.proto";
+import "Wset.proto";
+
+// The regulator service definition for external use, i.e., intra-peer (gRPC 1).
+// This service defines methods for regulatory compliance check, both
+// in synchronous and asynchronous ways, i.e., 1) a "CheckCompliance"
+// method for synchronous compliance check and 2) an "AsyncCheckCompliance"
+// method for asynchronous check.
+service Regulator {
+    // This is the only method needed for gRPC2, where we keep a bidirectional
+    // stream between both communicating parties.
+    rpc GetComplianceProof (stream ProofRequest) returns (stream ProofResponse) {}
+
+    // Retrieve registration materials from compliance-node-sgx, i.e,
+    // 1) pkbase64; 2) quotebase64
+    rpc GetRegisterInfo (Empty) returns (RegisterInfo) {}
+
+}
+
+message RegisterInfo {
+    string ecc_pubkey = 1;
+    string tx_id = 2;
+}
+
+message Empty {
+    uint64 nonce = 1;
+}
+
+message ProofRequest {
+    uint64 nonce = 1; // A unique number for this request message
+
+    TransactionInfo tx_info = 2;
+}
+
+message ProofResponse {
+    uint64 nonce = 1; // A unique number for this response message
+
+    CProof c_proof = 2;
+}
+
+message TransactionInfo {
+    string tx_id = 1;
+    string ch_id = 2;
+    string cc_id = 3;
+    string func_name = 4;
+    repeated string args = 5;
+    wset.TxWriteSet wset = 6;
+    Version version = 7;
+}
+
+message Version {
+    string block_number = 1;
+    string tx_id = 2;
+}
