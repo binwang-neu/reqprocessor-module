@@ -129,6 +129,7 @@ public:
             tx_write_wet.pb_wset[i].value = proof_req.tx_info().wset().pb_wset(i).value();
             tx_write_wet.pb_wset[i].name_space = proof_req.tx_info().wset().pb_wset(i).name_space();
           }
+
           std::cout << "private wset: " << std::endl;
           for (size_t j = 0; j < pv_wset_size; j++)
           {
@@ -141,14 +142,16 @@ public:
             tx_write_wet.pv_wset[j].value = proof_req.tx_info().wset().pv_wset(j).value();
             tx_write_wet.pv_wset[j].name_space = proof_req.tx_info().wset().pv_wset(j).name_space();
           }
+          transaction.wSet = tx_write_wet;
         }
         
-
         if (proof_req.tx_info().has_version())
         {
           std::cout << "[version] info: " << std::endl;
           std::cout << "block number: " << proof_req.tx_info().version().block_number() << std::endl;
           std::cout << "transaction id: " << proof_req.tx_info().version().tx_id() << std::endl;
+          transaction.version.block_number = proof_req.tx_info().version().block_number();
+          transaction.version.tx_id = proof_req.tx_info().version().tx_id();
         } 
       }
 
