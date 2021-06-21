@@ -4,6 +4,11 @@ project(RegulatorServer VERSION 1.0)
 
 include(common.cmake)
 
+# add debug compile flag
+SET(CMAKE_BUILD_TYPE "Debug") 
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb ")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+
 # Proto file
 get_filename_component(cp_proto "./protos/Compliance.proto" ABSOLUTE)
 get_filename_component(cp_proto_path "${cp_proto}" PATH)
@@ -90,7 +95,7 @@ target_link_libraries(rg_grpc_proto cp_proto ws_proto)
 
 # Targets RegulatorServer
 #set(MYINCLUDE "/usr/local/lib `pkg-config --libs grpc++ grpc`")
-message("${MYINCLUDE}")
+#message("${MYINCLUDE}")
 foreach(_target
   RegulatorServer)
   add_executable(${_target} "../regulator_server/${_target}.cc")
@@ -101,4 +106,14 @@ foreach(_target
     ${_PROTOBUF_LIBPROTOBUF}
     )
 endforeach()
-message("233")
+foreach(_target
+  RegulatorClient)
+  add_executable(${_target} "../regulator_client/${_target}.cc")
+  target_link_libraries(${_target}
+    rg_grpc_proto cp_proto ws_proto
+    ${_REFLECTION}
+    ${_GRPC_GRPCPP}
+    ${_PROTOBUF_LIBPROTOBUF}
+    )
+endforeach()
+message("CMakeList run finish")

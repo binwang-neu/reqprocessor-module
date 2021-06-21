@@ -75,6 +75,7 @@ public:
         m_threads[i].join();
       }
     }
+    m_threads.clear();
   }
 
   // Submit a function to be executed asynchronously by the pool

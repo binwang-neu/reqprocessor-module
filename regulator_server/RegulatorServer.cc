@@ -19,7 +19,6 @@
 #include <iostream>
 #include <memory>
 #include <string>
-
 #include <grpcpp/ext/proto_server_reflection_plugin.h>
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
@@ -52,10 +51,14 @@ const char* thsize = std::getenv("THREAD_POOL_SIZE");
 int n_workers = thsize != nullptr
                             ? std::stoi(thsize) : std::thread::hardware_concurrency();
 // Create pool with 5 threads
-ThreadPool pool(5);
+ThreadPool pool(n_workers);
 
 // Logic and data behind the server's behavior.
 class RegulatorServiceImpl final : public protos::Regulator::Service {
+private:
+  // define struct of request cache
+  std::map<std::string, protos::ProofResponse> res_cache = std::map<std::string, protos::ProofResponse>{};
+
 public:
   // grpc service for registration
   grpc::Status GetRegisterInfo(::grpc::ServerContext *context,
@@ -199,6 +202,7 @@ void RunServer() {
 
 int main(int argc, char** argv) {
   // Initialize pool
+  std::cout << "$ENV{CXXFLAGS}" << std::endl;
   pool.init();
 
   RunServer();
