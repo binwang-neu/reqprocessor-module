@@ -109,7 +109,7 @@ link_libraries(rg_grpc_proto cp_proto rs_grpc_proto
 #set(MYINCLUDE "/usr/local/lib `pkg-config --libs grpc++ grpc`")
 #message("${MYINCLUDE}")
 foreach(_target
-  RegulatorServer)
+  RegulatorServer RegistrationServer)
   add_executable(${_target} "../regulator_server/${_target}.cc")
   target_link_libraries(${_target}
     rg_grpc_proto cp_proto rs_grpc_proto
@@ -119,7 +119,7 @@ foreach(_target
     )
 endforeach()
 # foreach(_target
-#   RegulatorClient)
+#   RegistrationServer)
 #   add_executable(${_target} "../regulator_client/${_target}.cc")
 #   target_link_libraries(${_target}
 #     rg_grpc_proto cp_proto ws_proto

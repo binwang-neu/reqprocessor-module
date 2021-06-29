@@ -22,22 +22,23 @@
 #include <random>
 #include <grpcpp/grpcpp.h>
 
-#include "Regulator.grpc.pb.h"
+#include "Registration.grpc.pb.h"
+#include "Registration.pb.h"
 #include "RegulatorClient.h"
 
 using namespace std;
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
-using protos::Regulator;
-using protos::Empty;
-using protos::RegisterInfo;
+using request_proto::Registration;
+using request_proto::Empty;
+using request_proto::RegisterInfo;
 
 
 class RegulatorClient {
  public:
   RegulatorClient(std::shared_ptr<Channel> channel)
-      : stub_(Regulator::NewStub(channel)) {}
+      : stub_(Registration::NewStub(channel)) {}
 
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
@@ -70,7 +71,7 @@ class RegulatorClient {
   }
 
  private:
-  std::unique_ptr<Regulator::Stub> stub_;
+  std::unique_ptr<Registration::Stub> stub_;
 };
 
 int main(int argc, char** argv) {

@@ -19,11 +19,10 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace protos {
+namespace request_proto {
 
 static const char* Regulator_method_names[] = {
-  "/protos.Regulator/GetComplianceProof",
-  "/protos.Regulator/GetRegisterInfo",
+  "/request_proto.Regulator/GetComplianceProof",
 };
 
 std::unique_ptr< Regulator::Stub> Regulator::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -34,87 +33,46 @@ std::unique_ptr< Regulator::Stub> Regulator::NewStub(const std::shared_ptr< ::gr
 
 Regulator::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_GetComplianceProof_(Regulator_method_names[0], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
-  , rpcmethod_GetRegisterInfo_(Regulator_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::ClientReaderWriter< ::protos::ProofRequest, ::protos::ProofResponse>* Regulator::Stub::GetComplianceProofRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::protos::ProofRequest, ::protos::ProofResponse>::Create(channel_.get(), rpcmethod_GetComplianceProof_, context);
+::grpc::ClientReaderWriter< ::request_proto::ProofRequest, ::request_proto::ProofResponse>* Regulator::Stub::GetComplianceProofRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::request_proto::ProofRequest, ::request_proto::ProofResponse>::Create(channel_.get(), rpcmethod_GetComplianceProof_, context);
 }
 
-void Regulator::Stub::experimental_async::GetComplianceProof(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::protos::ProofRequest,::protos::ProofResponse>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::protos::ProofRequest,::protos::ProofResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_GetComplianceProof_, context, reactor);
+void Regulator::Stub::experimental_async::GetComplianceProof(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::request_proto::ProofRequest,::request_proto::ProofResponse>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::request_proto::ProofRequest,::request_proto::ProofResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_GetComplianceProof_, context, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::protos::ProofRequest, ::protos::ProofResponse>* Regulator::Stub::AsyncGetComplianceProofRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::protos::ProofRequest, ::protos::ProofResponse>::Create(channel_.get(), cq, rpcmethod_GetComplianceProof_, context, true, tag);
+::grpc::ClientAsyncReaderWriter< ::request_proto::ProofRequest, ::request_proto::ProofResponse>* Regulator::Stub::AsyncGetComplianceProofRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::request_proto::ProofRequest, ::request_proto::ProofResponse>::Create(channel_.get(), cq, rpcmethod_GetComplianceProof_, context, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::protos::ProofRequest, ::protos::ProofResponse>* Regulator::Stub::PrepareAsyncGetComplianceProofRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::protos::ProofRequest, ::protos::ProofResponse>::Create(channel_.get(), cq, rpcmethod_GetComplianceProof_, context, false, nullptr);
-}
-
-::grpc::Status Regulator::Stub::GetRegisterInfo(::grpc::ClientContext* context, const ::protos::Empty& request, ::protos::RegisterInfo* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::protos::Empty, ::protos::RegisterInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetRegisterInfo_, context, request, response);
-}
-
-void Regulator::Stub::experimental_async::GetRegisterInfo(::grpc::ClientContext* context, const ::protos::Empty* request, ::protos::RegisterInfo* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::protos::Empty, ::protos::RegisterInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetRegisterInfo_, context, request, response, std::move(f));
-}
-
-void Regulator::Stub::experimental_async::GetRegisterInfo(::grpc::ClientContext* context, const ::protos::Empty* request, ::protos::RegisterInfo* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetRegisterInfo_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::protos::RegisterInfo>* Regulator::Stub::PrepareAsyncGetRegisterInfoRaw(::grpc::ClientContext* context, const ::protos::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::protos::RegisterInfo, ::protos::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetRegisterInfo_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::protos::RegisterInfo>* Regulator::Stub::AsyncGetRegisterInfoRaw(::grpc::ClientContext* context, const ::protos::Empty& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncGetRegisterInfoRaw(context, request, cq);
-  result->StartCall();
-  return result;
+::grpc::ClientAsyncReaderWriter< ::request_proto::ProofRequest, ::request_proto::ProofResponse>* Regulator::Stub::PrepareAsyncGetComplianceProofRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::request_proto::ProofRequest, ::request_proto::ProofResponse>::Create(channel_.get(), cq, rpcmethod_GetComplianceProof_, context, false, nullptr);
 }
 
 Regulator::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Regulator_method_names[0],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< Regulator::Service, ::protos::ProofRequest, ::protos::ProofResponse>(
+      new ::grpc::internal::BidiStreamingHandler< Regulator::Service, ::request_proto::ProofRequest, ::request_proto::ProofResponse>(
           [](Regulator::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReaderWriter<::protos::ProofResponse,
-             ::protos::ProofRequest>* stream) {
+             ::grpc::ServerReaderWriter<::request_proto::ProofResponse,
+             ::request_proto::ProofRequest>* stream) {
                return service->GetComplianceProof(ctx, stream);
-             }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Regulator_method_names[1],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Regulator::Service, ::protos::Empty, ::protos::RegisterInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Regulator::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::protos::Empty* req,
-             ::protos::RegisterInfo* resp) {
-               return service->GetRegisterInfo(ctx, req, resp);
              }, this)));
 }
 
 Regulator::Service::~Service() {
 }
 
-::grpc::Status Regulator::Service::GetComplianceProof(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::protos::ProofResponse, ::protos::ProofRequest>* stream) {
+::grpc::Status Regulator::Service::GetComplianceProof(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::request_proto::ProofResponse, ::request_proto::ProofRequest>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Regulator::Service::GetRegisterInfo(::grpc::ServerContext* context, const ::protos::Empty* request, ::protos::RegisterInfo* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
 
-
-}  // namespace protos
+}  // namespace request_proto
 
