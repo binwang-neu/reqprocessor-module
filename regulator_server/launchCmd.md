@@ -12,6 +12,6 @@ g++ -std=c++11 -I/usr/local/include -pthread -c RegulatorServer.cc -o RegulatorS
 
 g++ Compliance.pb.o Regulator.grpc.pb.o Regulator.pb.o Wset.pb.o RegulatorServer.o -L/usr/local/lib `pkg-config --libs grpc++ grpc` -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed -lprotobuf -lpthread -ldl -lssl -o RegulatorServer
 
-grpcurl -plaintext -d '{"nonce":"1","tx_info":{"tx_id":"10086","ch_id":"mychannel","cc_id":"chainCode","func_name":"myFunc","args":["abc","def","ghi"],"wset":{"pb_wset":[{"key":"1","value":"2","namespace":"3"},{"key":"12","value":"22","namespace":"32"}]},"version":{"block_number":"10","tx_id":"10086"}}}' 0.0.0.0:50051 protos.Regulator.GetComplianceProof
+grpcurl -plaintext -d '{"nonce":"1","tx_info":{"tx_id":"10086","ch_id":"mychannel","cc_id":"chainCode","func_name":"myFunc","args":["abc","def","ghi"],"wset":{"pb_wset":[{"key":"1","value":"2","name_space":"3"},{"key":"12","value":"22","name_space":"32"}]},"version":{"block_number":"10","tx_id":"10086"}}}' 0.0.0.0:50051 protos.Regulator.GetComplianceProof
 
 grpcurl -plaintext 0.0.0.0:50051 protos.Regulator.GetRegisterInfo

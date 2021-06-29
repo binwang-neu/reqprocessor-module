@@ -1,26 +1,7 @@
-/*
-Copyright IBM Corp. 2016 All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-                 http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
 syntax = "proto3";
 
 
-option go_package = "github.com/hyperledger/fabric/protos/compliance";
-option java_package = "org.hyperledger.fabric.protos.compliance";
-
-package protos;
+package request_proto;
 
 message CProof {
     string tx_id = 1;
@@ -37,9 +18,9 @@ message CProof {
     repeated Data datas = 7;
     string func_name = 8;
     string peer_signature = 9;
+    string peer_cert = 12;
     string tee_pk = 10;
     string tee_signature = 11;
-    string tee_cert = 12;
     repeated string query = 13;
 }
 
@@ -66,4 +47,29 @@ message Data {
     SOURCE source = 3;
 }
 
+message TransactionInfo {
+    string tx_id = 1;
+    string ch_id = 2;
+    string cc_id = 3;
+    string func_name = 4;
+    repeated string args = 5;
+    TxWriteSet wset = 6;
+    Version version = 7;
+    string timestamp = 8;
+}
 
+message Version {
+    string block_number = 1;
+    string tx_id = 2;
+}
+
+message TxWriteSet {
+    repeated Wset pb_wset = 1;
+    repeated Wset pv_wset = 2;
+}
+
+message Wset {
+    string key = 1;
+    string value = 2;
+    string name_space = 3;
+}

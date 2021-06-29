@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package request_proto;
+
+message PeerTxRequest {
+    string ias_attestation_report = 1;
+    string enclave_pk = 2;
+    endpoint end_point = 3;
+}
+
+message PeerTxResponse {
+    string tx_id = 2;
+}
+
+message endpoint {
+    string ip_address = 1;
+    uint64 port = 2;
+}
+
+message PeerSignRequest {
+    string cproof_data = 1; //serialized cproof
+}
+
+message PeerSignResponse {
+    string peer_signature = 1;
+    string peer_cert = 2;
+}
+
+service PeerServices {
+    // Get signature form regulator peer
+    rpc GetPeerSignature (PeerSignRequest) returns (PeerSignResponse) {}
+
+    // Send registerTX to peer
+    rpc sendPeerTx (PeerTxRequest) returns (PeerTxResponse) {}    
+}

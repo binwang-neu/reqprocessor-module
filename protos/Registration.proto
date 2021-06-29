@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package request_proto;
+
+service Registration {
+    rpc GetRegisterInfo (Empty) returns (RegisterInfo) {}
+}
+
+message RegisterInfo {
+    string ecc_pubkey = 1;
+    string tx_id = 2;
+}
+
+message Empty {
+    uint64 nonce = 1;
+}

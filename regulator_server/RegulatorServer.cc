@@ -23,25 +23,23 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 #include "ThreadPool.h"
-#include "RegulatorServer.h"
 
 #include "Regulator.grpc.pb.h"
+#include "Compliance.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using protos::Regulator;
-using protos::ProofRequest;
-using protos::ProofResponse;
+using request_proto::Regulator;
+using request_proto::ProofRequest;
+using request_proto::ProofResponse;
 
 // Same as before but now we have an output parameter
-int multiply_return(const int a, const int b) {
+request_proto::CProof binding(request_proto::TransactionInfo tx) {
   //simulate_hard_computation();
-  const int res = a * b;
-  std::cout << "thread id is " << std::this_thread::get_id() << std::endl;
-  std::cout << a << " * " << b << " = " << res << std::endl;
-  return res;
+  request_proto::CProof cproof;
+  return cproof;
 }
 
 // Get thread pool size from environemnt variable
@@ -54,40 +52,16 @@ int n_workers = thsize != nullptr
 ThreadPool pool(n_workers);
 
 // Logic and data behind the server's behavior.
-class RegulatorServiceImpl final : public protos::Regulator::Service {
-private:
-  // define struct of request cache
-  std::map<std::string, protos::ProofResponse> res_cache = std::map<std::string, protos::ProofResponse>{};
-
+class RegulatorServiceImpl final : public request_proto::Regulator::Service {
 public:
-  // grpc service for registration
-  grpc::Status GetRegisterInfo(::grpc::ServerContext *context,
-                               const ::protos::Empty *request,
-                               ::protos::RegisterInfo *response) override {
-    std::cout << "--- GetRegisterInfo start ---" << std::endl;
-
-    /*
-    // Submit function with return parameter
-    auto future = pool.submit(multiply_return, 5, 3);
-    // Wait for multiplication output to finish
-    int res = future.get();
-    std::cout << "Last operation result is equals to " << res << std::endl;
-    std::cout << " request is processing: " << std::endl;
-    */
-    response->set_ecc_pubkey("123");
-    response->set_tx_id("100");
-    std::cout << "--- GetRegisterInfo finish ---" << std::endl;
-    return grpc::Status::OK;
-  }
-
   // grpc service for compliance
   grpc::Status GetComplianceProof(::grpc::ServerContext *context,
-                                  grpc::ServerReaderWriter<::protos::ProofResponse, ::protos::ProofRequest> *stream) override {
-    protos::ProofRequest proof_req;
+                                  grpc::ServerReaderWriter<::request_proto::ProofResponse, ::request_proto::ProofRequest> *stream) override {
+    request_proto::ProofRequest proof_req;
     while(stream->Read(&proof_req)){
       std::cout << "--- GetComplianceProof start ---" << std::endl;
-      Transaction transaction;
-      TxWriteSet tx_write_wet;
+      //request_proto::TransactionInfo transaction;
+      //TxWriteSet tx_write_wet;
       
       // Parsing Compliance request
       std::cout << "[COMPLIANCE REQUEST] info : " << std::endl;
@@ -99,20 +73,15 @@ public:
         std::cout << "channel id: " << proof_req.tx_info().ch_id() << std::endl;
         std::cout << "chainCode id: " << proof_req.tx_info().cc_id() << std::endl;
         std::cout << "function name: " << proof_req.tx_info().func_name() << std::endl;
-
-        transaction.tx_id = proof_req.tx_info().tx_id();
-        transaction.ch_id = proof_req.tx_info().ch_id();
-        transaction.cc_id = proof_req.tx_info().cc_id();
-        transaction.func_name = proof_req.tx_info().func_name();
         
         size_t args_size = proof_req.tx_info().args_size();
         // init args size
-        transaction.args.resize(args_size);
+        //transaction.args.resize(args_size);
         std::cout << "[args] info: " << std::endl;
         for (size_t i = 0; i < args_size; i++)
         {
           std::cout << "arguements " << i << ": "<< proof_req.tx_info().args(i) << std::endl;
-          transaction.args[i] = proof_req.tx_info().args(i);
+          //transaction.args[i] = proof_req.tx_info().args(i);
         }
           
         std::cout << "[wsets] info: " << std::endl;
@@ -123,29 +92,29 @@ public:
           size_t pv_wset_size = proof_req.tx_info().wset().pv_wset_size();
           for (size_t i = 0; i < pb_wset_size; i++)
           {
-            tx_write_wet.pb_wset.resize(pb_wset_size);
+            //tx_write_wet.pb_wset.resize(pb_wset_size);
             std::cout << "wset index is " << i << std::endl;
             std::cout << "key: " << proof_req.tx_info().wset().pb_wset(i).key() << std::endl;
             std::cout << "value: " << proof_req.tx_info().wset().pb_wset(i).value() << std::endl;
             std::cout << "namespace: " << proof_req.tx_info().wset().pb_wset(i).name_space() << std::endl;
-            tx_write_wet.pb_wset[i].key = proof_req.tx_info().wset().pb_wset(i).key();
-            tx_write_wet.pb_wset[i].value = proof_req.tx_info().wset().pb_wset(i).value();
-            tx_write_wet.pb_wset[i].name_space = proof_req.tx_info().wset().pb_wset(i).name_space();
+            //tx_write_wet.pb_wset[i].key = proof_req.tx_info().wset().pb_wset(i).key();
+            //tx_write_wet.pb_wset[i].value = proof_req.tx_info().wset().pb_wset(i).value();
+            //tx_write_wet.pb_wset[i].name_space = proof_req.tx_info().wset().pb_wset(i).name_space();
           }
 
           std::cout << "private wset: " << std::endl;
           for (size_t j = 0; j < pv_wset_size; j++)
           {
-            tx_write_wet.pv_wset.resize(pv_wset_size);
+            //tx_write_wet.pv_wset.resize(pv_wset_size);
             std::cout << "wset index is " << j << std::endl;
             std::cout << "key: " << proof_req.tx_info().wset().pv_wset(j).key() << std::endl;
             std::cout << "value: " << proof_req.tx_info().wset().pv_wset(j).value() << std::endl;
             std::cout << "namespace: " << proof_req.tx_info().wset().pv_wset(j).name_space() << std::endl;
-            tx_write_wet.pv_wset[j].key = proof_req.tx_info().wset().pv_wset(j).key();
-            tx_write_wet.pv_wset[j].value = proof_req.tx_info().wset().pv_wset(j).value();
-            tx_write_wet.pv_wset[j].name_space = proof_req.tx_info().wset().pv_wset(j).name_space();
+            //tx_write_wet.pv_wset[j].key = proof_req.tx_info().wset().pv_wset(j).key();
+            //tx_write_wet.pv_wset[j].value = proof_req.tx_info().wset().pv_wset(j).value();
+            //tx_write_wet.pv_wset[j].name_space = proof_req.tx_info().wset().pv_wset(j).name_space();
           }
-          transaction.wSet = tx_write_wet;
+          //transaction.wSet = tx_write_wet;
         }
         
         if (proof_req.tx_info().has_version())
@@ -153,22 +122,20 @@ public:
           std::cout << "[version] info: " << std::endl;
           std::cout << "block number: " << proof_req.tx_info().version().block_number() << std::endl;
           std::cout << "transaction id: " << proof_req.tx_info().version().tx_id() << std::endl;
-          transaction.version.block_number = proof_req.tx_info().version().block_number();
-          transaction.version.tx_id = proof_req.tx_info().version().tx_id();
+          //transaction.version.block_number = proof_req.tx_info().version().block_number();
+          //transaction.version.tx_id = proof_req.tx_info().version().tx_id();
         } 
       }
-
       // Submit function with return parameter
-      auto future = pool.submit(multiply_return, 5, 3);
-      // Wait for multiplication output to finish
-      int res = future.get();
-      std::cout << "Last operation result is equals to " << res << std::endl;
-      std::cout << " request is processing: " << std::endl;
-      
-      protos::ProofResponse proof_res;
-      protos::CProof *cproof = new protos::CProof;
-      cproof->add_status(protos::CProof_CSTATE::CProof_CSTATE_SATISFIED);
-      proof_res.set_nonce(1);
+      auto future = pool.submit(binding, proof_req.tx_info());
+      // Wait for binding output
+      request_proto::CProof *cproof = new request_proto::CProof;
+      *cproof = future.get();
+      //std::cout << "Last operation result is equals to " << res << std::endl;
+      //std::cout << " request is processing: " << std::endl;
+      request_proto::ProofResponse proof_res;
+      cproof->add_status(request_proto::CProof_CSTATE::CProof_CSTATE_SATISFIED);
+      proof_res.set_nonce(proof_req.nonce());
       proof_res.set_allocated_c_proof(cproof);
 
       stream->Write(proof_res);

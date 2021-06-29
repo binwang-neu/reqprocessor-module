@@ -47,7 +47,7 @@ struct TableStruct_Compliance_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,7 +55,7 @@ struct TableStruct_Compliance_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Compliance_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_Compliance_2eproto_metadata_getter(int index);
-namespace protos {
+namespace request_proto {
 class Binding;
 struct BindingDefaultTypeInternal;
 extern BindingDefaultTypeInternal _Binding_default_instance_;
@@ -68,14 +68,30 @@ extern DataDefaultTypeInternal _Data_default_instance_;
 class Rule;
 struct RuleDefaultTypeInternal;
 extern RuleDefaultTypeInternal _Rule_default_instance_;
-}  // namespace protos
+class TransactionInfo;
+struct TransactionInfoDefaultTypeInternal;
+extern TransactionInfoDefaultTypeInternal _TransactionInfo_default_instance_;
+class TxWriteSet;
+struct TxWriteSetDefaultTypeInternal;
+extern TxWriteSetDefaultTypeInternal _TxWriteSet_default_instance_;
+class Version;
+struct VersionDefaultTypeInternal;
+extern VersionDefaultTypeInternal _Version_default_instance_;
+class Wset;
+struct WsetDefaultTypeInternal;
+extern WsetDefaultTypeInternal _Wset_default_instance_;
+}  // namespace request_proto
 PROTOBUF_NAMESPACE_OPEN
-template<> ::protos::Binding* Arena::CreateMaybeMessage<::protos::Binding>(Arena*);
-template<> ::protos::CProof* Arena::CreateMaybeMessage<::protos::CProof>(Arena*);
-template<> ::protos::Data* Arena::CreateMaybeMessage<::protos::Data>(Arena*);
-template<> ::protos::Rule* Arena::CreateMaybeMessage<::protos::Rule>(Arena*);
+template<> ::request_proto::Binding* Arena::CreateMaybeMessage<::request_proto::Binding>(Arena*);
+template<> ::request_proto::CProof* Arena::CreateMaybeMessage<::request_proto::CProof>(Arena*);
+template<> ::request_proto::Data* Arena::CreateMaybeMessage<::request_proto::Data>(Arena*);
+template<> ::request_proto::Rule* Arena::CreateMaybeMessage<::request_proto::Rule>(Arena*);
+template<> ::request_proto::TransactionInfo* Arena::CreateMaybeMessage<::request_proto::TransactionInfo>(Arena*);
+template<> ::request_proto::TxWriteSet* Arena::CreateMaybeMessage<::request_proto::TxWriteSet>(Arena*);
+template<> ::request_proto::Version* Arena::CreateMaybeMessage<::request_proto::Version>(Arena*);
+template<> ::request_proto::Wset* Arena::CreateMaybeMessage<::request_proto::Wset>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace protos {
+namespace request_proto {
 
 enum CProof_CSTATE : int {
   CProof_CSTATE_SATISFIED = 0,
@@ -131,7 +147,7 @@ inline bool Data_SOURCE_Parse(
 // ===================================================================
 
 class CProof PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.CProof) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.CProof) */ {
  public:
   inline CProof() : CProof(nullptr) {}
   virtual ~CProof();
@@ -221,7 +237,7 @@ class CProof PROTOBUF_FINAL :
   void InternalSwap(CProof* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protos.CProof";
+    return "request_proto.CProof";
   }
   protected:
   explicit CProof(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -284,7 +300,7 @@ class CProof PROTOBUF_FINAL :
     kPeerSignatureFieldNumber = 9,
     kTeePkFieldNumber = 10,
     kTeeSignatureFieldNumber = 11,
-    kTeeCertFieldNumber = 12,
+    kPeerCertFieldNumber = 12,
     kBindingFieldNumber = 5,
   };
   // repeated string inputs = 2;
@@ -311,57 +327,57 @@ class CProof PROTOBUF_FINAL :
   std::string* _internal_add_inputs();
   public:
 
-  // repeated .protos.CProof.CSTATE status = 3;
+  // repeated .request_proto.CProof.CSTATE status = 3;
   int status_size() const;
   private:
   int _internal_status_size() const;
   public:
   void clear_status();
   private:
-  ::protos::CProof_CSTATE _internal_status(int index) const;
-  void _internal_add_status(::protos::CProof_CSTATE value);
+  ::request_proto::CProof_CSTATE _internal_status(int index) const;
+  void _internal_add_status(::request_proto::CProof_CSTATE value);
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_status();
   public:
-  ::protos::CProof_CSTATE status(int index) const;
-  void set_status(int index, ::protos::CProof_CSTATE value);
-  void add_status(::protos::CProof_CSTATE value);
+  ::request_proto::CProof_CSTATE status(int index) const;
+  void set_status(int index, ::request_proto::CProof_CSTATE value);
+  void add_status(::request_proto::CProof_CSTATE value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& status() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_status();
 
-  // repeated .protos.Rule rules = 6;
+  // repeated .request_proto.Rule rules = 6;
   int rules_size() const;
   private:
   int _internal_rules_size() const;
   public:
   void clear_rules();
-  ::protos::Rule* mutable_rules(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Rule >*
+  ::request_proto::Rule* mutable_rules(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Rule >*
       mutable_rules();
   private:
-  const ::protos::Rule& _internal_rules(int index) const;
-  ::protos::Rule* _internal_add_rules();
+  const ::request_proto::Rule& _internal_rules(int index) const;
+  ::request_proto::Rule* _internal_add_rules();
   public:
-  const ::protos::Rule& rules(int index) const;
-  ::protos::Rule* add_rules();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Rule >&
+  const ::request_proto::Rule& rules(int index) const;
+  ::request_proto::Rule* add_rules();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Rule >&
       rules() const;
 
-  // repeated .protos.Data datas = 7;
+  // repeated .request_proto.Data datas = 7;
   int datas_size() const;
   private:
   int _internal_datas_size() const;
   public:
   void clear_datas();
-  ::protos::Data* mutable_datas(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Data >*
+  ::request_proto::Data* mutable_datas(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Data >*
       mutable_datas();
   private:
-  const ::protos::Data& _internal_datas(int index) const;
-  ::protos::Data* _internal_add_datas();
+  const ::request_proto::Data& _internal_datas(int index) const;
+  ::request_proto::Data* _internal_add_datas();
   public:
-  const ::protos::Data& datas(int index) const;
-  ::protos::Data* add_datas();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Data >&
+  const ::request_proto::Data& datas(int index) const;
+  ::request_proto::Data* add_datas();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Data >&
       datas() const;
 
   // repeated string query = 13;
@@ -484,41 +500,41 @@ class CProof PROTOBUF_FINAL :
   std::string* _internal_mutable_tee_signature();
   public:
 
-  // string tee_cert = 12;
-  void clear_tee_cert();
-  const std::string& tee_cert() const;
-  void set_tee_cert(const std::string& value);
-  void set_tee_cert(std::string&& value);
-  void set_tee_cert(const char* value);
-  void set_tee_cert(const char* value, size_t size);
-  std::string* mutable_tee_cert();
-  std::string* release_tee_cert();
-  void set_allocated_tee_cert(std::string* tee_cert);
+  // string peer_cert = 12;
+  void clear_peer_cert();
+  const std::string& peer_cert() const;
+  void set_peer_cert(const std::string& value);
+  void set_peer_cert(std::string&& value);
+  void set_peer_cert(const char* value);
+  void set_peer_cert(const char* value, size_t size);
+  std::string* mutable_peer_cert();
+  std::string* release_peer_cert();
+  void set_allocated_peer_cert(std::string* peer_cert);
   private:
-  const std::string& _internal_tee_cert() const;
-  void _internal_set_tee_cert(const std::string& value);
-  std::string* _internal_mutable_tee_cert();
+  const std::string& _internal_peer_cert() const;
+  void _internal_set_peer_cert(const std::string& value);
+  std::string* _internal_mutable_peer_cert();
   public:
 
-  // .protos.Binding binding = 5;
+  // .request_proto.Binding binding = 5;
   bool has_binding() const;
   private:
   bool _internal_has_binding() const;
   public:
   void clear_binding();
-  const ::protos::Binding& binding() const;
-  ::protos::Binding* release_binding();
-  ::protos::Binding* mutable_binding();
-  void set_allocated_binding(::protos::Binding* binding);
+  const ::request_proto::Binding& binding() const;
+  ::request_proto::Binding* release_binding();
+  ::request_proto::Binding* mutable_binding();
+  void set_allocated_binding(::request_proto::Binding* binding);
   private:
-  const ::protos::Binding& _internal_binding() const;
-  ::protos::Binding* _internal_mutable_binding();
+  const ::request_proto::Binding& _internal_binding() const;
+  ::request_proto::Binding* _internal_mutable_binding();
   public:
   void unsafe_arena_set_allocated_binding(
-      ::protos::Binding* binding);
-  ::protos::Binding* unsafe_arena_release_binding();
+      ::request_proto::Binding* binding);
+  ::request_proto::Binding* unsafe_arena_release_binding();
 
-  // @@protoc_insertion_point(class_scope:protos.CProof)
+  // @@protoc_insertion_point(class_scope:request_proto.CProof)
  private:
   class _Internal;
 
@@ -528,8 +544,8 @@ class CProof PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> inputs_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> status_;
   mutable std::atomic<int> _status_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Rule > rules_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Data > datas_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Rule > rules_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Data > datas_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> query_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tx_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr worldstate_hash_;
@@ -537,15 +553,15 @@ class CProof PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr peer_signature_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tee_pk_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tee_signature_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tee_cert_;
-  ::protos::Binding* binding_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr peer_cert_;
+  ::request_proto::Binding* binding_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Compliance_2eproto;
 };
 // -------------------------------------------------------------------
 
 class Binding PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.Binding) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.Binding) */ {
  public:
   inline Binding() : Binding(nullptr) {}
   virtual ~Binding();
@@ -635,7 +651,7 @@ class Binding PROTOBUF_FINAL :
   void InternalSwap(Binding* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protos.Binding";
+    return "request_proto.Binding";
   }
   protected:
   explicit Binding(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -692,7 +708,7 @@ class Binding PROTOBUF_FINAL :
   std::string* _internal_mutable_version();
   public:
 
-  // @@protoc_insertion_point(class_scope:protos.Binding)
+  // @@protoc_insertion_point(class_scope:request_proto.Binding)
  private:
   class _Internal;
 
@@ -707,7 +723,7 @@ class Binding PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class Rule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.Rule) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.Rule) */ {
  public:
   inline Rule() : Rule(nullptr) {}
   virtual ~Rule();
@@ -797,7 +813,7 @@ class Rule PROTOBUF_FINAL :
   void InternalSwap(Rule* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protos.Rule";
+    return "request_proto.Rule";
   }
   protected:
   explicit Rule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -871,7 +887,7 @@ class Rule PROTOBUF_FINAL :
   std::string* _internal_mutable_version();
   public:
 
-  // @@protoc_insertion_point(class_scope:protos.Rule)
+  // @@protoc_insertion_point(class_scope:request_proto.Rule)
  private:
   class _Internal;
 
@@ -887,7 +903,7 @@ class Rule PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class Data PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:protos.Data) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.Data) */ {
  public:
   inline Data() : Data(nullptr) {}
   virtual ~Data();
@@ -977,7 +993,7 @@ class Data PROTOBUF_FINAL :
   void InternalSwap(Data* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "protos.Data";
+    return "request_proto.Data";
   }
   protected:
   explicit Data(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1067,16 +1083,16 @@ class Data PROTOBUF_FINAL :
   std::string* _internal_mutable_entity_value();
   public:
 
-  // .protos.Data.SOURCE source = 3;
+  // .request_proto.Data.SOURCE source = 3;
   void clear_source();
-  ::protos::Data_SOURCE source() const;
-  void set_source(::protos::Data_SOURCE value);
+  ::request_proto::Data_SOURCE source() const;
+  void set_source(::request_proto::Data_SOURCE value);
   private:
-  ::protos::Data_SOURCE _internal_source() const;
-  void _internal_set_source(::protos::Data_SOURCE value);
+  ::request_proto::Data_SOURCE _internal_source() const;
+  void _internal_set_source(::request_proto::Data_SOURCE value);
   public:
 
-  // @@protoc_insertion_point(class_scope:protos.Data)
+  // @@protoc_insertion_point(class_scope:request_proto.Data)
  private:
   class _Internal;
 
@@ -1086,6 +1102,796 @@ class Data PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr entity_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr entity_value_;
   int source_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Compliance_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TransactionInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.TransactionInfo) */ {
+ public:
+  inline TransactionInfo() : TransactionInfo(nullptr) {}
+  virtual ~TransactionInfo();
+  explicit constexpr TransactionInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TransactionInfo(const TransactionInfo& from);
+  TransactionInfo(TransactionInfo&& from) noexcept
+    : TransactionInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline TransactionInfo& operator=(const TransactionInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TransactionInfo& operator=(TransactionInfo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TransactionInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TransactionInfo* internal_default_instance() {
+    return reinterpret_cast<const TransactionInfo*>(
+               &_TransactionInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(TransactionInfo& a, TransactionInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TransactionInfo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TransactionInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TransactionInfo* New() const final {
+    return CreateMaybeMessage<TransactionInfo>(nullptr);
+  }
+
+  TransactionInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TransactionInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TransactionInfo& from);
+  void MergeFrom(const TransactionInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TransactionInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "request_proto.TransactionInfo";
+  }
+  protected:
+  explicit TransactionInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_Compliance_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kArgsFieldNumber = 5,
+    kTxIdFieldNumber = 1,
+    kChIdFieldNumber = 2,
+    kCcIdFieldNumber = 3,
+    kFuncNameFieldNumber = 4,
+    kTimestampFieldNumber = 8,
+    kWsetFieldNumber = 6,
+    kVersionFieldNumber = 7,
+  };
+  // repeated string args = 5;
+  int args_size() const;
+  private:
+  int _internal_args_size() const;
+  public:
+  void clear_args();
+  const std::string& args(int index) const;
+  std::string* mutable_args(int index);
+  void set_args(int index, const std::string& value);
+  void set_args(int index, std::string&& value);
+  void set_args(int index, const char* value);
+  void set_args(int index, const char* value, size_t size);
+  std::string* add_args();
+  void add_args(const std::string& value);
+  void add_args(std::string&& value);
+  void add_args(const char* value);
+  void add_args(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& args() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_args();
+  private:
+  const std::string& _internal_args(int index) const;
+  std::string* _internal_add_args();
+  public:
+
+  // string tx_id = 1;
+  void clear_tx_id();
+  const std::string& tx_id() const;
+  void set_tx_id(const std::string& value);
+  void set_tx_id(std::string&& value);
+  void set_tx_id(const char* value);
+  void set_tx_id(const char* value, size_t size);
+  std::string* mutable_tx_id();
+  std::string* release_tx_id();
+  void set_allocated_tx_id(std::string* tx_id);
+  private:
+  const std::string& _internal_tx_id() const;
+  void _internal_set_tx_id(const std::string& value);
+  std::string* _internal_mutable_tx_id();
+  public:
+
+  // string ch_id = 2;
+  void clear_ch_id();
+  const std::string& ch_id() const;
+  void set_ch_id(const std::string& value);
+  void set_ch_id(std::string&& value);
+  void set_ch_id(const char* value);
+  void set_ch_id(const char* value, size_t size);
+  std::string* mutable_ch_id();
+  std::string* release_ch_id();
+  void set_allocated_ch_id(std::string* ch_id);
+  private:
+  const std::string& _internal_ch_id() const;
+  void _internal_set_ch_id(const std::string& value);
+  std::string* _internal_mutable_ch_id();
+  public:
+
+  // string cc_id = 3;
+  void clear_cc_id();
+  const std::string& cc_id() const;
+  void set_cc_id(const std::string& value);
+  void set_cc_id(std::string&& value);
+  void set_cc_id(const char* value);
+  void set_cc_id(const char* value, size_t size);
+  std::string* mutable_cc_id();
+  std::string* release_cc_id();
+  void set_allocated_cc_id(std::string* cc_id);
+  private:
+  const std::string& _internal_cc_id() const;
+  void _internal_set_cc_id(const std::string& value);
+  std::string* _internal_mutable_cc_id();
+  public:
+
+  // string func_name = 4;
+  void clear_func_name();
+  const std::string& func_name() const;
+  void set_func_name(const std::string& value);
+  void set_func_name(std::string&& value);
+  void set_func_name(const char* value);
+  void set_func_name(const char* value, size_t size);
+  std::string* mutable_func_name();
+  std::string* release_func_name();
+  void set_allocated_func_name(std::string* func_name);
+  private:
+  const std::string& _internal_func_name() const;
+  void _internal_set_func_name(const std::string& value);
+  std::string* _internal_mutable_func_name();
+  public:
+
+  // string timestamp = 8;
+  void clear_timestamp();
+  const std::string& timestamp() const;
+  void set_timestamp(const std::string& value);
+  void set_timestamp(std::string&& value);
+  void set_timestamp(const char* value);
+  void set_timestamp(const char* value, size_t size);
+  std::string* mutable_timestamp();
+  std::string* release_timestamp();
+  void set_allocated_timestamp(std::string* timestamp);
+  private:
+  const std::string& _internal_timestamp() const;
+  void _internal_set_timestamp(const std::string& value);
+  std::string* _internal_mutable_timestamp();
+  public:
+
+  // .request_proto.TxWriteSet wset = 6;
+  bool has_wset() const;
+  private:
+  bool _internal_has_wset() const;
+  public:
+  void clear_wset();
+  const ::request_proto::TxWriteSet& wset() const;
+  ::request_proto::TxWriteSet* release_wset();
+  ::request_proto::TxWriteSet* mutable_wset();
+  void set_allocated_wset(::request_proto::TxWriteSet* wset);
+  private:
+  const ::request_proto::TxWriteSet& _internal_wset() const;
+  ::request_proto::TxWriteSet* _internal_mutable_wset();
+  public:
+  void unsafe_arena_set_allocated_wset(
+      ::request_proto::TxWriteSet* wset);
+  ::request_proto::TxWriteSet* unsafe_arena_release_wset();
+
+  // .request_proto.Version version = 7;
+  bool has_version() const;
+  private:
+  bool _internal_has_version() const;
+  public:
+  void clear_version();
+  const ::request_proto::Version& version() const;
+  ::request_proto::Version* release_version();
+  ::request_proto::Version* mutable_version();
+  void set_allocated_version(::request_proto::Version* version);
+  private:
+  const ::request_proto::Version& _internal_version() const;
+  ::request_proto::Version* _internal_mutable_version();
+  public:
+  void unsafe_arena_set_allocated_version(
+      ::request_proto::Version* version);
+  ::request_proto::Version* unsafe_arena_release_version();
+
+  // @@protoc_insertion_point(class_scope:request_proto.TransactionInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> args_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tx_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ch_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cc_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr func_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timestamp_;
+  ::request_proto::TxWriteSet* wset_;
+  ::request_proto::Version* version_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Compliance_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Version PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.Version) */ {
+ public:
+  inline Version() : Version(nullptr) {}
+  virtual ~Version();
+  explicit constexpr Version(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Version(const Version& from);
+  Version(Version&& from) noexcept
+    : Version() {
+    *this = ::std::move(from);
+  }
+
+  inline Version& operator=(const Version& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Version& operator=(Version&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Version& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Version* internal_default_instance() {
+    return reinterpret_cast<const Version*>(
+               &_Version_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(Version& a, Version& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Version* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Version* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Version* New() const final {
+    return CreateMaybeMessage<Version>(nullptr);
+  }
+
+  Version* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Version>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Version& from);
+  void MergeFrom(const Version& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Version* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "request_proto.Version";
+  }
+  protected:
+  explicit Version(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_Compliance_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBlockNumberFieldNumber = 1,
+    kTxIdFieldNumber = 2,
+  };
+  // string block_number = 1;
+  void clear_block_number();
+  const std::string& block_number() const;
+  void set_block_number(const std::string& value);
+  void set_block_number(std::string&& value);
+  void set_block_number(const char* value);
+  void set_block_number(const char* value, size_t size);
+  std::string* mutable_block_number();
+  std::string* release_block_number();
+  void set_allocated_block_number(std::string* block_number);
+  private:
+  const std::string& _internal_block_number() const;
+  void _internal_set_block_number(const std::string& value);
+  std::string* _internal_mutable_block_number();
+  public:
+
+  // string tx_id = 2;
+  void clear_tx_id();
+  const std::string& tx_id() const;
+  void set_tx_id(const std::string& value);
+  void set_tx_id(std::string&& value);
+  void set_tx_id(const char* value);
+  void set_tx_id(const char* value, size_t size);
+  std::string* mutable_tx_id();
+  std::string* release_tx_id();
+  void set_allocated_tx_id(std::string* tx_id);
+  private:
+  const std::string& _internal_tx_id() const;
+  void _internal_set_tx_id(const std::string& value);
+  std::string* _internal_mutable_tx_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:request_proto.Version)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr block_number_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tx_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Compliance_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TxWriteSet PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.TxWriteSet) */ {
+ public:
+  inline TxWriteSet() : TxWriteSet(nullptr) {}
+  virtual ~TxWriteSet();
+  explicit constexpr TxWriteSet(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TxWriteSet(const TxWriteSet& from);
+  TxWriteSet(TxWriteSet&& from) noexcept
+    : TxWriteSet() {
+    *this = ::std::move(from);
+  }
+
+  inline TxWriteSet& operator=(const TxWriteSet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TxWriteSet& operator=(TxWriteSet&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TxWriteSet& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TxWriteSet* internal_default_instance() {
+    return reinterpret_cast<const TxWriteSet*>(
+               &_TxWriteSet_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(TxWriteSet& a, TxWriteSet& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TxWriteSet* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TxWriteSet* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TxWriteSet* New() const final {
+    return CreateMaybeMessage<TxWriteSet>(nullptr);
+  }
+
+  TxWriteSet* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TxWriteSet>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TxWriteSet& from);
+  void MergeFrom(const TxWriteSet& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TxWriteSet* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "request_proto.TxWriteSet";
+  }
+  protected:
+  explicit TxWriteSet(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_Compliance_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPbWsetFieldNumber = 1,
+    kPvWsetFieldNumber = 2,
+  };
+  // repeated .request_proto.Wset pb_wset = 1;
+  int pb_wset_size() const;
+  private:
+  int _internal_pb_wset_size() const;
+  public:
+  void clear_pb_wset();
+  ::request_proto::Wset* mutable_pb_wset(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >*
+      mutable_pb_wset();
+  private:
+  const ::request_proto::Wset& _internal_pb_wset(int index) const;
+  ::request_proto::Wset* _internal_add_pb_wset();
+  public:
+  const ::request_proto::Wset& pb_wset(int index) const;
+  ::request_proto::Wset* add_pb_wset();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >&
+      pb_wset() const;
+
+  // repeated .request_proto.Wset pv_wset = 2;
+  int pv_wset_size() const;
+  private:
+  int _internal_pv_wset_size() const;
+  public:
+  void clear_pv_wset();
+  ::request_proto::Wset* mutable_pv_wset(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >*
+      mutable_pv_wset();
+  private:
+  const ::request_proto::Wset& _internal_pv_wset(int index) const;
+  ::request_proto::Wset* _internal_add_pv_wset();
+  public:
+  const ::request_proto::Wset& pv_wset(int index) const;
+  ::request_proto::Wset* add_pv_wset();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >&
+      pv_wset() const;
+
+  // @@protoc_insertion_point(class_scope:request_proto.TxWriteSet)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset > pb_wset_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset > pv_wset_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Compliance_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Wset PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:request_proto.Wset) */ {
+ public:
+  inline Wset() : Wset(nullptr) {}
+  virtual ~Wset();
+  explicit constexpr Wset(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Wset(const Wset& from);
+  Wset(Wset&& from) noexcept
+    : Wset() {
+    *this = ::std::move(from);
+  }
+
+  inline Wset& operator=(const Wset& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Wset& operator=(Wset&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Wset& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Wset* internal_default_instance() {
+    return reinterpret_cast<const Wset*>(
+               &_Wset_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Wset& a, Wset& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Wset* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Wset* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Wset* New() const final {
+    return CreateMaybeMessage<Wset>(nullptr);
+  }
+
+  Wset* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Wset>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Wset& from);
+  void MergeFrom(const Wset& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Wset* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "request_proto.Wset";
+  }
+  protected:
+  explicit Wset(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_Compliance_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeyFieldNumber = 1,
+    kValueFieldNumber = 2,
+    kNameSpaceFieldNumber = 3,
+  };
+  // string key = 1;
+  void clear_key();
+  const std::string& key() const;
+  void set_key(const std::string& value);
+  void set_key(std::string&& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  std::string* mutable_key();
+  std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // string value = 2;
+  void clear_value();
+  const std::string& value() const;
+  void set_value(const std::string& value);
+  void set_value(std::string&& value);
+  void set_value(const char* value);
+  void set_value(const char* value, size_t size);
+  std::string* mutable_value();
+  std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // string name_space = 3;
+  void clear_name_space();
+  const std::string& name_space() const;
+  void set_name_space(const std::string& value);
+  void set_name_space(std::string&& value);
+  void set_name_space(const char* value);
+  void set_name_space(const char* value, size_t size);
+  std::string* mutable_name_space();
+  std::string* release_name_space();
+  void set_allocated_name_space(std::string* name_space);
+  private:
+  const std::string& _internal_name_space() const;
+  void _internal_set_name_space(const std::string& value);
+  std::string* _internal_mutable_name_space();
+  public:
+
+  // @@protoc_insertion_point(class_scope:request_proto.Wset)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_space_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Compliance_2eproto;
 };
@@ -1105,15 +1911,15 @@ inline void CProof::clear_tx_id() {
   tx_id_.ClearToEmpty();
 }
 inline const std::string& CProof::tx_id() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.tx_id)
   return _internal_tx_id();
 }
 inline void CProof::set_tx_id(const std::string& value) {
   _internal_set_tx_id(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.tx_id)
 }
 inline std::string* CProof::mutable_tx_id() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.tx_id)
   return _internal_mutable_tx_id();
 }
 inline const std::string& CProof::_internal_tx_id() const {
@@ -1127,27 +1933,27 @@ inline void CProof::set_tx_id(std::string&& value) {
   
   tx_id_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.tx_id)
 }
 inline void CProof::set_tx_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.tx_id)
 }
 inline void CProof::set_tx_id(const char* value,
     size_t size) {
   
   tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.tx_id)
 }
 inline std::string* CProof::_internal_mutable_tx_id() {
   
   return tx_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_tx_id() {
-  // @@protoc_insertion_point(field_release:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.tx_id)
   return tx_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_tx_id(std::string* tx_id) {
@@ -1158,7 +1964,7 @@ inline void CProof::set_allocated_tx_id(std::string* tx_id) {
   }
   tx_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tx_id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.tx_id)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.tx_id)
 }
 
 // repeated string inputs = 2;
@@ -1172,70 +1978,70 @@ inline void CProof::clear_inputs() {
   inputs_.Clear();
 }
 inline std::string* CProof::add_inputs() {
-  // @@protoc_insertion_point(field_add_mutable:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_add_mutable:request_proto.CProof.inputs)
   return _internal_add_inputs();
 }
 inline const std::string& CProof::_internal_inputs(int index) const {
   return inputs_.Get(index);
 }
 inline const std::string& CProof::inputs(int index) const {
-  // @@protoc_insertion_point(field_get:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.inputs)
   return _internal_inputs(index);
 }
 inline std::string* CProof::mutable_inputs(int index) {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.inputs)
   return inputs_.Mutable(index);
 }
 inline void CProof::set_inputs(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.inputs)
   inputs_.Mutable(index)->assign(value);
 }
 inline void CProof::set_inputs(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.inputs)
   inputs_.Mutable(index)->assign(std::move(value));
 }
 inline void CProof::set_inputs(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   inputs_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.inputs)
 }
 inline void CProof::set_inputs(int index, const char* value, size_t size) {
   inputs_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.inputs)
 }
 inline std::string* CProof::_internal_add_inputs() {
   return inputs_.Add();
 }
 inline void CProof::add_inputs(const std::string& value) {
   inputs_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_add:request_proto.CProof.inputs)
 }
 inline void CProof::add_inputs(std::string&& value) {
   inputs_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_add:request_proto.CProof.inputs)
 }
 inline void CProof::add_inputs(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   inputs_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_add_char:request_proto.CProof.inputs)
 }
 inline void CProof::add_inputs(const char* value, size_t size) {
   inputs_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_add_pointer:request_proto.CProof.inputs)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 CProof::inputs() const {
-  // @@protoc_insertion_point(field_list:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_list:request_proto.CProof.inputs)
   return inputs_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 CProof::mutable_inputs() {
-  // @@protoc_insertion_point(field_mutable_list:protos.CProof.inputs)
+  // @@protoc_insertion_point(field_mutable_list:request_proto.CProof.inputs)
   return &inputs_;
 }
 
-// repeated .protos.CProof.CSTATE status = 3;
+// repeated .request_proto.CProof.CSTATE status = 3;
 inline int CProof::_internal_status_size() const {
   return status_.size();
 }
@@ -1245,27 +2051,27 @@ inline int CProof::status_size() const {
 inline void CProof::clear_status() {
   status_.Clear();
 }
-inline ::protos::CProof_CSTATE CProof::_internal_status(int index) const {
-  return static_cast< ::protos::CProof_CSTATE >(status_.Get(index));
+inline ::request_proto::CProof_CSTATE CProof::_internal_status(int index) const {
+  return static_cast< ::request_proto::CProof_CSTATE >(status_.Get(index));
 }
-inline ::protos::CProof_CSTATE CProof::status(int index) const {
-  // @@protoc_insertion_point(field_get:protos.CProof.status)
+inline ::request_proto::CProof_CSTATE CProof::status(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.CProof.status)
   return _internal_status(index);
 }
-inline void CProof::set_status(int index, ::protos::CProof_CSTATE value) {
+inline void CProof::set_status(int index, ::request_proto::CProof_CSTATE value) {
   status_.Set(index, value);
-  // @@protoc_insertion_point(field_set:protos.CProof.status)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.status)
 }
-inline void CProof::_internal_add_status(::protos::CProof_CSTATE value) {
+inline void CProof::_internal_add_status(::request_proto::CProof_CSTATE value) {
   status_.Add(value);
 }
-inline void CProof::add_status(::protos::CProof_CSTATE value) {
-  // @@protoc_insertion_point(field_add:protos.CProof.status)
+inline void CProof::add_status(::request_proto::CProof_CSTATE value) {
+  // @@protoc_insertion_point(field_add:request_proto.CProof.status)
   _internal_add_status(value);
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
 CProof::status() const {
-  // @@protoc_insertion_point(field_list:protos.CProof.status)
+  // @@protoc_insertion_point(field_list:request_proto.CProof.status)
   return status_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
@@ -1274,7 +2080,7 @@ CProof::_internal_mutable_status() {
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
 CProof::mutable_status() {
-  // @@protoc_insertion_point(field_mutable_list:protos.CProof.status)
+  // @@protoc_insertion_point(field_mutable_list:request_proto.CProof.status)
   return _internal_mutable_status();
 }
 
@@ -1283,15 +2089,15 @@ inline void CProof::clear_worldstate_hash() {
   worldstate_hash_.ClearToEmpty();
 }
 inline const std::string& CProof::worldstate_hash() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.worldstate_hash)
   return _internal_worldstate_hash();
 }
 inline void CProof::set_worldstate_hash(const std::string& value) {
   _internal_set_worldstate_hash(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.worldstate_hash)
 }
 inline std::string* CProof::mutable_worldstate_hash() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.worldstate_hash)
   return _internal_mutable_worldstate_hash();
 }
 inline const std::string& CProof::_internal_worldstate_hash() const {
@@ -1305,27 +2111,27 @@ inline void CProof::set_worldstate_hash(std::string&& value) {
   
   worldstate_hash_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.worldstate_hash)
 }
 inline void CProof::set_worldstate_hash(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   worldstate_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.worldstate_hash)
 }
 inline void CProof::set_worldstate_hash(const char* value,
     size_t size) {
   
   worldstate_hash_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.worldstate_hash)
 }
 inline std::string* CProof::_internal_mutable_worldstate_hash() {
   
   return worldstate_hash_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_worldstate_hash() {
-  // @@protoc_insertion_point(field_release:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.worldstate_hash)
   return worldstate_hash_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_worldstate_hash(std::string* worldstate_hash) {
@@ -1336,10 +2142,10 @@ inline void CProof::set_allocated_worldstate_hash(std::string* worldstate_hash) 
   }
   worldstate_hash_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), worldstate_hash,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.worldstate_hash)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.worldstate_hash)
 }
 
-// .protos.Binding binding = 5;
+// .request_proto.Binding binding = 5;
 inline bool CProof::_internal_has_binding() const {
   return this != internal_default_instance() && binding_ != nullptr;
 }
@@ -1352,17 +2158,17 @@ inline void CProof::clear_binding() {
   }
   binding_ = nullptr;
 }
-inline const ::protos::Binding& CProof::_internal_binding() const {
-  const ::protos::Binding* p = binding_;
-  return p != nullptr ? *p : reinterpret_cast<const ::protos::Binding&>(
-      ::protos::_Binding_default_instance_);
+inline const ::request_proto::Binding& CProof::_internal_binding() const {
+  const ::request_proto::Binding* p = binding_;
+  return p != nullptr ? *p : reinterpret_cast<const ::request_proto::Binding&>(
+      ::request_proto::_Binding_default_instance_);
 }
-inline const ::protos::Binding& CProof::binding() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.binding)
+inline const ::request_proto::Binding& CProof::binding() const {
+  // @@protoc_insertion_point(field_get:request_proto.CProof.binding)
   return _internal_binding();
 }
 inline void CProof::unsafe_arena_set_allocated_binding(
-    ::protos::Binding* binding) {
+    ::request_proto::Binding* binding) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(binding_);
   }
@@ -1372,37 +2178,37 @@ inline void CProof::unsafe_arena_set_allocated_binding(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:protos.CProof.binding)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:request_proto.CProof.binding)
 }
-inline ::protos::Binding* CProof::release_binding() {
+inline ::request_proto::Binding* CProof::release_binding() {
   
-  ::protos::Binding* temp = binding_;
+  ::request_proto::Binding* temp = binding_;
   binding_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::protos::Binding* CProof::unsafe_arena_release_binding() {
-  // @@protoc_insertion_point(field_release:protos.CProof.binding)
+inline ::request_proto::Binding* CProof::unsafe_arena_release_binding() {
+  // @@protoc_insertion_point(field_release:request_proto.CProof.binding)
   
-  ::protos::Binding* temp = binding_;
+  ::request_proto::Binding* temp = binding_;
   binding_ = nullptr;
   return temp;
 }
-inline ::protos::Binding* CProof::_internal_mutable_binding() {
+inline ::request_proto::Binding* CProof::_internal_mutable_binding() {
   
   if (binding_ == nullptr) {
-    auto* p = CreateMaybeMessage<::protos::Binding>(GetArena());
+    auto* p = CreateMaybeMessage<::request_proto::Binding>(GetArena());
     binding_ = p;
   }
   return binding_;
 }
-inline ::protos::Binding* CProof::mutable_binding() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.binding)
+inline ::request_proto::Binding* CProof::mutable_binding() {
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.binding)
   return _internal_mutable_binding();
 }
-inline void CProof::set_allocated_binding(::protos::Binding* binding) {
+inline void CProof::set_allocated_binding(::request_proto::Binding* binding) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete binding_;
@@ -1419,10 +2225,10 @@ inline void CProof::set_allocated_binding(::protos::Binding* binding) {
     
   }
   binding_ = binding;
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.binding)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.binding)
 }
 
-// repeated .protos.Rule rules = 6;
+// repeated .request_proto.Rule rules = 6;
 inline int CProof::_internal_rules_size() const {
   return rules_.size();
 }
@@ -1432,36 +2238,36 @@ inline int CProof::rules_size() const {
 inline void CProof::clear_rules() {
   rules_.Clear();
 }
-inline ::protos::Rule* CProof::mutable_rules(int index) {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.rules)
+inline ::request_proto::Rule* CProof::mutable_rules(int index) {
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.rules)
   return rules_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Rule >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Rule >*
 CProof::mutable_rules() {
-  // @@protoc_insertion_point(field_mutable_list:protos.CProof.rules)
+  // @@protoc_insertion_point(field_mutable_list:request_proto.CProof.rules)
   return &rules_;
 }
-inline const ::protos::Rule& CProof::_internal_rules(int index) const {
+inline const ::request_proto::Rule& CProof::_internal_rules(int index) const {
   return rules_.Get(index);
 }
-inline const ::protos::Rule& CProof::rules(int index) const {
-  // @@protoc_insertion_point(field_get:protos.CProof.rules)
+inline const ::request_proto::Rule& CProof::rules(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.CProof.rules)
   return _internal_rules(index);
 }
-inline ::protos::Rule* CProof::_internal_add_rules() {
+inline ::request_proto::Rule* CProof::_internal_add_rules() {
   return rules_.Add();
 }
-inline ::protos::Rule* CProof::add_rules() {
-  // @@protoc_insertion_point(field_add:protos.CProof.rules)
+inline ::request_proto::Rule* CProof::add_rules() {
+  // @@protoc_insertion_point(field_add:request_proto.CProof.rules)
   return _internal_add_rules();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Rule >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Rule >&
 CProof::rules() const {
-  // @@protoc_insertion_point(field_list:protos.CProof.rules)
+  // @@protoc_insertion_point(field_list:request_proto.CProof.rules)
   return rules_;
 }
 
-// repeated .protos.Data datas = 7;
+// repeated .request_proto.Data datas = 7;
 inline int CProof::_internal_datas_size() const {
   return datas_.size();
 }
@@ -1471,32 +2277,32 @@ inline int CProof::datas_size() const {
 inline void CProof::clear_datas() {
   datas_.Clear();
 }
-inline ::protos::Data* CProof::mutable_datas(int index) {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.datas)
+inline ::request_proto::Data* CProof::mutable_datas(int index) {
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.datas)
   return datas_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Data >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Data >*
 CProof::mutable_datas() {
-  // @@protoc_insertion_point(field_mutable_list:protos.CProof.datas)
+  // @@protoc_insertion_point(field_mutable_list:request_proto.CProof.datas)
   return &datas_;
 }
-inline const ::protos::Data& CProof::_internal_datas(int index) const {
+inline const ::request_proto::Data& CProof::_internal_datas(int index) const {
   return datas_.Get(index);
 }
-inline const ::protos::Data& CProof::datas(int index) const {
-  // @@protoc_insertion_point(field_get:protos.CProof.datas)
+inline const ::request_proto::Data& CProof::datas(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.CProof.datas)
   return _internal_datas(index);
 }
-inline ::protos::Data* CProof::_internal_add_datas() {
+inline ::request_proto::Data* CProof::_internal_add_datas() {
   return datas_.Add();
 }
-inline ::protos::Data* CProof::add_datas() {
-  // @@protoc_insertion_point(field_add:protos.CProof.datas)
+inline ::request_proto::Data* CProof::add_datas() {
+  // @@protoc_insertion_point(field_add:request_proto.CProof.datas)
   return _internal_add_datas();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::protos::Data >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Data >&
 CProof::datas() const {
-  // @@protoc_insertion_point(field_list:protos.CProof.datas)
+  // @@protoc_insertion_point(field_list:request_proto.CProof.datas)
   return datas_;
 }
 
@@ -1505,15 +2311,15 @@ inline void CProof::clear_func_name() {
   func_name_.ClearToEmpty();
 }
 inline const std::string& CProof::func_name() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.func_name)
   return _internal_func_name();
 }
 inline void CProof::set_func_name(const std::string& value) {
   _internal_set_func_name(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.func_name)
 }
 inline std::string* CProof::mutable_func_name() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.func_name)
   return _internal_mutable_func_name();
 }
 inline const std::string& CProof::_internal_func_name() const {
@@ -1527,27 +2333,27 @@ inline void CProof::set_func_name(std::string&& value) {
   
   func_name_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.func_name)
 }
 inline void CProof::set_func_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   func_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.func_name)
 }
 inline void CProof::set_func_name(const char* value,
     size_t size) {
   
   func_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.func_name)
 }
 inline std::string* CProof::_internal_mutable_func_name() {
   
   return func_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_func_name() {
-  // @@protoc_insertion_point(field_release:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.func_name)
   return func_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_func_name(std::string* func_name) {
@@ -1558,7 +2364,7 @@ inline void CProof::set_allocated_func_name(std::string* func_name) {
   }
   func_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), func_name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.func_name)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.func_name)
 }
 
 // string peer_signature = 9;
@@ -1566,15 +2372,15 @@ inline void CProof::clear_peer_signature() {
   peer_signature_.ClearToEmpty();
 }
 inline const std::string& CProof::peer_signature() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.peer_signature)
   return _internal_peer_signature();
 }
 inline void CProof::set_peer_signature(const std::string& value) {
   _internal_set_peer_signature(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.peer_signature)
 }
 inline std::string* CProof::mutable_peer_signature() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.peer_signature)
   return _internal_mutable_peer_signature();
 }
 inline const std::string& CProof::_internal_peer_signature() const {
@@ -1588,27 +2394,27 @@ inline void CProof::set_peer_signature(std::string&& value) {
   
   peer_signature_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.peer_signature)
 }
 inline void CProof::set_peer_signature(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   peer_signature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.peer_signature)
 }
 inline void CProof::set_peer_signature(const char* value,
     size_t size) {
   
   peer_signature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.peer_signature)
 }
 inline std::string* CProof::_internal_mutable_peer_signature() {
   
   return peer_signature_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_peer_signature() {
-  // @@protoc_insertion_point(field_release:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.peer_signature)
   return peer_signature_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_peer_signature(std::string* peer_signature) {
@@ -1619,7 +2425,68 @@ inline void CProof::set_allocated_peer_signature(std::string* peer_signature) {
   }
   peer_signature_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), peer_signature,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.peer_signature)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.peer_signature)
+}
+
+// string peer_cert = 12;
+inline void CProof::clear_peer_cert() {
+  peer_cert_.ClearToEmpty();
+}
+inline const std::string& CProof::peer_cert() const {
+  // @@protoc_insertion_point(field_get:request_proto.CProof.peer_cert)
+  return _internal_peer_cert();
+}
+inline void CProof::set_peer_cert(const std::string& value) {
+  _internal_set_peer_cert(value);
+  // @@protoc_insertion_point(field_set:request_proto.CProof.peer_cert)
+}
+inline std::string* CProof::mutable_peer_cert() {
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.peer_cert)
+  return _internal_mutable_peer_cert();
+}
+inline const std::string& CProof::_internal_peer_cert() const {
+  return peer_cert_.Get();
+}
+inline void CProof::_internal_set_peer_cert(const std::string& value) {
+  
+  peer_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CProof::set_peer_cert(std::string&& value) {
+  
+  peer_cert_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.peer_cert)
+}
+inline void CProof::set_peer_cert(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  peer_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.peer_cert)
+}
+inline void CProof::set_peer_cert(const char* value,
+    size_t size) {
+  
+  peer_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.peer_cert)
+}
+inline std::string* CProof::_internal_mutable_peer_cert() {
+  
+  return peer_cert_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CProof::release_peer_cert() {
+  // @@protoc_insertion_point(field_release:request_proto.CProof.peer_cert)
+  return peer_cert_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CProof::set_allocated_peer_cert(std::string* peer_cert) {
+  if (peer_cert != nullptr) {
+    
+  } else {
+    
+  }
+  peer_cert_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), peer_cert,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.peer_cert)
 }
 
 // string tee_pk = 10;
@@ -1627,15 +2494,15 @@ inline void CProof::clear_tee_pk() {
   tee_pk_.ClearToEmpty();
 }
 inline const std::string& CProof::tee_pk() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.tee_pk)
   return _internal_tee_pk();
 }
 inline void CProof::set_tee_pk(const std::string& value) {
   _internal_set_tee_pk(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.tee_pk)
 }
 inline std::string* CProof::mutable_tee_pk() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.tee_pk)
   return _internal_mutable_tee_pk();
 }
 inline const std::string& CProof::_internal_tee_pk() const {
@@ -1649,27 +2516,27 @@ inline void CProof::set_tee_pk(std::string&& value) {
   
   tee_pk_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.tee_pk)
 }
 inline void CProof::set_tee_pk(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   tee_pk_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.tee_pk)
 }
 inline void CProof::set_tee_pk(const char* value,
     size_t size) {
   
   tee_pk_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.tee_pk)
 }
 inline std::string* CProof::_internal_mutable_tee_pk() {
   
   return tee_pk_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_tee_pk() {
-  // @@protoc_insertion_point(field_release:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.tee_pk)
   return tee_pk_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_tee_pk(std::string* tee_pk) {
@@ -1680,7 +2547,7 @@ inline void CProof::set_allocated_tee_pk(std::string* tee_pk) {
   }
   tee_pk_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tee_pk,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.tee_pk)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.tee_pk)
 }
 
 // string tee_signature = 11;
@@ -1688,15 +2555,15 @@ inline void CProof::clear_tee_signature() {
   tee_signature_.ClearToEmpty();
 }
 inline const std::string& CProof::tee_signature() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.tee_signature)
   return _internal_tee_signature();
 }
 inline void CProof::set_tee_signature(const std::string& value) {
   _internal_set_tee_signature(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.tee_signature)
 }
 inline std::string* CProof::mutable_tee_signature() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.tee_signature)
   return _internal_mutable_tee_signature();
 }
 inline const std::string& CProof::_internal_tee_signature() const {
@@ -1710,27 +2577,27 @@ inline void CProof::set_tee_signature(std::string&& value) {
   
   tee_signature_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.CProof.tee_signature)
 }
 inline void CProof::set_tee_signature(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   tee_signature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.tee_signature)
 }
 inline void CProof::set_tee_signature(const char* value,
     size_t size) {
   
   tee_signature_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.tee_signature)
 }
 inline std::string* CProof::_internal_mutable_tee_signature() {
   
   return tee_signature_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* CProof::release_tee_signature() {
-  // @@protoc_insertion_point(field_release:protos.CProof.tee_signature)
+  // @@protoc_insertion_point(field_release:request_proto.CProof.tee_signature)
   return tee_signature_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void CProof::set_allocated_tee_signature(std::string* tee_signature) {
@@ -1741,68 +2608,7 @@ inline void CProof::set_allocated_tee_signature(std::string* tee_signature) {
   }
   tee_signature_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tee_signature,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.tee_signature)
-}
-
-// string tee_cert = 12;
-inline void CProof::clear_tee_cert() {
-  tee_cert_.ClearToEmpty();
-}
-inline const std::string& CProof::tee_cert() const {
-  // @@protoc_insertion_point(field_get:protos.CProof.tee_cert)
-  return _internal_tee_cert();
-}
-inline void CProof::set_tee_cert(const std::string& value) {
-  _internal_set_tee_cert(value);
-  // @@protoc_insertion_point(field_set:protos.CProof.tee_cert)
-}
-inline std::string* CProof::mutable_tee_cert() {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.tee_cert)
-  return _internal_mutable_tee_cert();
-}
-inline const std::string& CProof::_internal_tee_cert() const {
-  return tee_cert_.Get();
-}
-inline void CProof::_internal_set_tee_cert(const std::string& value) {
-  
-  tee_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CProof::set_tee_cert(std::string&& value) {
-  
-  tee_cert_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.CProof.tee_cert)
-}
-inline void CProof::set_tee_cert(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  tee_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.CProof.tee_cert)
-}
-inline void CProof::set_tee_cert(const char* value,
-    size_t size) {
-  
-  tee_cert_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.tee_cert)
-}
-inline std::string* CProof::_internal_mutable_tee_cert() {
-  
-  return tee_cert_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CProof::release_tee_cert() {
-  // @@protoc_insertion_point(field_release:protos.CProof.tee_cert)
-  return tee_cert_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CProof::set_allocated_tee_cert(std::string* tee_cert) {
-  if (tee_cert != nullptr) {
-    
-  } else {
-    
-  }
-  tee_cert_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tee_cert,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.CProof.tee_cert)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.CProof.tee_signature)
 }
 
 // repeated string query = 13;
@@ -1816,66 +2622,66 @@ inline void CProof::clear_query() {
   query_.Clear();
 }
 inline std::string* CProof::add_query() {
-  // @@protoc_insertion_point(field_add_mutable:protos.CProof.query)
+  // @@protoc_insertion_point(field_add_mutable:request_proto.CProof.query)
   return _internal_add_query();
 }
 inline const std::string& CProof::_internal_query(int index) const {
   return query_.Get(index);
 }
 inline const std::string& CProof::query(int index) const {
-  // @@protoc_insertion_point(field_get:protos.CProof.query)
+  // @@protoc_insertion_point(field_get:request_proto.CProof.query)
   return _internal_query(index);
 }
 inline std::string* CProof::mutable_query(int index) {
-  // @@protoc_insertion_point(field_mutable:protos.CProof.query)
+  // @@protoc_insertion_point(field_mutable:request_proto.CProof.query)
   return query_.Mutable(index);
 }
 inline void CProof::set_query(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:protos.CProof.query)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.query)
   query_.Mutable(index)->assign(value);
 }
 inline void CProof::set_query(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:protos.CProof.query)
+  // @@protoc_insertion_point(field_set:request_proto.CProof.query)
   query_.Mutable(index)->assign(std::move(value));
 }
 inline void CProof::set_query(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   query_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:protos.CProof.query)
+  // @@protoc_insertion_point(field_set_char:request_proto.CProof.query)
 }
 inline void CProof::set_query(int index, const char* value, size_t size) {
   query_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:protos.CProof.query)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.CProof.query)
 }
 inline std::string* CProof::_internal_add_query() {
   return query_.Add();
 }
 inline void CProof::add_query(const std::string& value) {
   query_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:protos.CProof.query)
+  // @@protoc_insertion_point(field_add:request_proto.CProof.query)
 }
 inline void CProof::add_query(std::string&& value) {
   query_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:protos.CProof.query)
+  // @@protoc_insertion_point(field_add:request_proto.CProof.query)
 }
 inline void CProof::add_query(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   query_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:protos.CProof.query)
+  // @@protoc_insertion_point(field_add_char:request_proto.CProof.query)
 }
 inline void CProof::add_query(const char* value, size_t size) {
   query_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:protos.CProof.query)
+  // @@protoc_insertion_point(field_add_pointer:request_proto.CProof.query)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 CProof::query() const {
-  // @@protoc_insertion_point(field_list:protos.CProof.query)
+  // @@protoc_insertion_point(field_list:request_proto.CProof.query)
   return query_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 CProof::mutable_query() {
-  // @@protoc_insertion_point(field_mutable_list:protos.CProof.query)
+  // @@protoc_insertion_point(field_mutable_list:request_proto.CProof.query)
   return &query_;
 }
 
@@ -1888,15 +2694,15 @@ inline void Binding::clear_id() {
   id_.ClearToEmpty();
 }
 inline const std::string& Binding::id() const {
-  // @@protoc_insertion_point(field_get:protos.Binding.id)
+  // @@protoc_insertion_point(field_get:request_proto.Binding.id)
   return _internal_id();
 }
 inline void Binding::set_id(const std::string& value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:protos.Binding.id)
+  // @@protoc_insertion_point(field_set:request_proto.Binding.id)
 }
 inline std::string* Binding::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:protos.Binding.id)
+  // @@protoc_insertion_point(field_mutable:request_proto.Binding.id)
   return _internal_mutable_id();
 }
 inline const std::string& Binding::_internal_id() const {
@@ -1910,27 +2716,27 @@ inline void Binding::set_id(std::string&& value) {
   
   id_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Binding.id)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Binding.id)
 }
 inline void Binding::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Binding.id)
+  // @@protoc_insertion_point(field_set_char:request_proto.Binding.id)
 }
 inline void Binding::set_id(const char* value,
     size_t size) {
   
   id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Binding.id)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Binding.id)
 }
 inline std::string* Binding::_internal_mutable_id() {
   
   return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Binding::release_id() {
-  // @@protoc_insertion_point(field_release:protos.Binding.id)
+  // @@protoc_insertion_point(field_release:request_proto.Binding.id)
   return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Binding::set_allocated_id(std::string* id) {
@@ -1941,7 +2747,7 @@ inline void Binding::set_allocated_id(std::string* id) {
   }
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Binding.id)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Binding.id)
 }
 
 // string version = 3;
@@ -1949,15 +2755,15 @@ inline void Binding::clear_version() {
   version_.ClearToEmpty();
 }
 inline const std::string& Binding::version() const {
-  // @@protoc_insertion_point(field_get:protos.Binding.version)
+  // @@protoc_insertion_point(field_get:request_proto.Binding.version)
   return _internal_version();
 }
 inline void Binding::set_version(const std::string& value) {
   _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:protos.Binding.version)
+  // @@protoc_insertion_point(field_set:request_proto.Binding.version)
 }
 inline std::string* Binding::mutable_version() {
-  // @@protoc_insertion_point(field_mutable:protos.Binding.version)
+  // @@protoc_insertion_point(field_mutable:request_proto.Binding.version)
   return _internal_mutable_version();
 }
 inline const std::string& Binding::_internal_version() const {
@@ -1971,27 +2777,27 @@ inline void Binding::set_version(std::string&& value) {
   
   version_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Binding.version)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Binding.version)
 }
 inline void Binding::set_version(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Binding.version)
+  // @@protoc_insertion_point(field_set_char:request_proto.Binding.version)
 }
 inline void Binding::set_version(const char* value,
     size_t size) {
   
   version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Binding.version)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Binding.version)
 }
 inline std::string* Binding::_internal_mutable_version() {
   
   return version_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Binding::release_version() {
-  // @@protoc_insertion_point(field_release:protos.Binding.version)
+  // @@protoc_insertion_point(field_release:request_proto.Binding.version)
   return version_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Binding::set_allocated_version(std::string* version) {
@@ -2002,7 +2808,7 @@ inline void Binding::set_allocated_version(std::string* version) {
   }
   version_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), version,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Binding.version)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Binding.version)
 }
 
 // -------------------------------------------------------------------
@@ -2014,15 +2820,15 @@ inline void Rule::clear_rule_file() {
   rule_file_.ClearToEmpty();
 }
 inline const std::string& Rule::rule_file() const {
-  // @@protoc_insertion_point(field_get:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_get:request_proto.Rule.rule_file)
   return _internal_rule_file();
 }
 inline void Rule::set_rule_file(const std::string& value) {
   _internal_set_rule_file(value);
-  // @@protoc_insertion_point(field_set:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_set:request_proto.Rule.rule_file)
 }
 inline std::string* Rule::mutable_rule_file() {
-  // @@protoc_insertion_point(field_mutable:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_mutable:request_proto.Rule.rule_file)
   return _internal_mutable_rule_file();
 }
 inline const std::string& Rule::_internal_rule_file() const {
@@ -2036,27 +2842,27 @@ inline void Rule::set_rule_file(std::string&& value) {
   
   rule_file_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Rule.rule_file)
 }
 inline void Rule::set_rule_file(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   rule_file_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_set_char:request_proto.Rule.rule_file)
 }
 inline void Rule::set_rule_file(const char* value,
     size_t size) {
   
   rule_file_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Rule.rule_file)
 }
 inline std::string* Rule::_internal_mutable_rule_file() {
   
   return rule_file_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Rule::release_rule_file() {
-  // @@protoc_insertion_point(field_release:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_release:request_proto.Rule.rule_file)
   return rule_file_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Rule::set_allocated_rule_file(std::string* rule_file) {
@@ -2067,7 +2873,7 @@ inline void Rule::set_allocated_rule_file(std::string* rule_file) {
   }
   rule_file_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), rule_file,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Rule.rule_file)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Rule.rule_file)
 }
 
 // string rule_index = 2;
@@ -2075,15 +2881,15 @@ inline void Rule::clear_rule_index() {
   rule_index_.ClearToEmpty();
 }
 inline const std::string& Rule::rule_index() const {
-  // @@protoc_insertion_point(field_get:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_get:request_proto.Rule.rule_index)
   return _internal_rule_index();
 }
 inline void Rule::set_rule_index(const std::string& value) {
   _internal_set_rule_index(value);
-  // @@protoc_insertion_point(field_set:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_set:request_proto.Rule.rule_index)
 }
 inline std::string* Rule::mutable_rule_index() {
-  // @@protoc_insertion_point(field_mutable:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_mutable:request_proto.Rule.rule_index)
   return _internal_mutable_rule_index();
 }
 inline const std::string& Rule::_internal_rule_index() const {
@@ -2097,27 +2903,27 @@ inline void Rule::set_rule_index(std::string&& value) {
   
   rule_index_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Rule.rule_index)
 }
 inline void Rule::set_rule_index(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   rule_index_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_set_char:request_proto.Rule.rule_index)
 }
 inline void Rule::set_rule_index(const char* value,
     size_t size) {
   
   rule_index_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Rule.rule_index)
 }
 inline std::string* Rule::_internal_mutable_rule_index() {
   
   return rule_index_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Rule::release_rule_index() {
-  // @@protoc_insertion_point(field_release:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_release:request_proto.Rule.rule_index)
   return rule_index_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Rule::set_allocated_rule_index(std::string* rule_index) {
@@ -2128,7 +2934,7 @@ inline void Rule::set_allocated_rule_index(std::string* rule_index) {
   }
   rule_index_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), rule_index,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Rule.rule_index)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Rule.rule_index)
 }
 
 // string version = 3;
@@ -2136,15 +2942,15 @@ inline void Rule::clear_version() {
   version_.ClearToEmpty();
 }
 inline const std::string& Rule::version() const {
-  // @@protoc_insertion_point(field_get:protos.Rule.version)
+  // @@protoc_insertion_point(field_get:request_proto.Rule.version)
   return _internal_version();
 }
 inline void Rule::set_version(const std::string& value) {
   _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:protos.Rule.version)
+  // @@protoc_insertion_point(field_set:request_proto.Rule.version)
 }
 inline std::string* Rule::mutable_version() {
-  // @@protoc_insertion_point(field_mutable:protos.Rule.version)
+  // @@protoc_insertion_point(field_mutable:request_proto.Rule.version)
   return _internal_mutable_version();
 }
 inline const std::string& Rule::_internal_version() const {
@@ -2158,27 +2964,27 @@ inline void Rule::set_version(std::string&& value) {
   
   version_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Rule.version)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Rule.version)
 }
 inline void Rule::set_version(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Rule.version)
+  // @@protoc_insertion_point(field_set_char:request_proto.Rule.version)
 }
 inline void Rule::set_version(const char* value,
     size_t size) {
   
   version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Rule.version)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Rule.version)
 }
 inline std::string* Rule::_internal_mutable_version() {
   
   return version_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Rule::release_version() {
-  // @@protoc_insertion_point(field_release:protos.Rule.version)
+  // @@protoc_insertion_point(field_release:request_proto.Rule.version)
   return version_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Rule::set_allocated_version(std::string* version) {
@@ -2189,7 +2995,7 @@ inline void Rule::set_allocated_version(std::string* version) {
   }
   version_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), version,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Rule.version)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Rule.version)
 }
 
 // -------------------------------------------------------------------
@@ -2201,15 +3007,15 @@ inline void Data::clear_entity_name() {
   entity_name_.ClearToEmpty();
 }
 inline const std::string& Data::entity_name() const {
-  // @@protoc_insertion_point(field_get:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_get:request_proto.Data.entity_name)
   return _internal_entity_name();
 }
 inline void Data::set_entity_name(const std::string& value) {
   _internal_set_entity_name(value);
-  // @@protoc_insertion_point(field_set:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_set:request_proto.Data.entity_name)
 }
 inline std::string* Data::mutable_entity_name() {
-  // @@protoc_insertion_point(field_mutable:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_mutable:request_proto.Data.entity_name)
   return _internal_mutable_entity_name();
 }
 inline const std::string& Data::_internal_entity_name() const {
@@ -2223,27 +3029,27 @@ inline void Data::set_entity_name(std::string&& value) {
   
   entity_name_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Data.entity_name)
 }
 inline void Data::set_entity_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   entity_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_set_char:request_proto.Data.entity_name)
 }
 inline void Data::set_entity_name(const char* value,
     size_t size) {
   
   entity_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Data.entity_name)
 }
 inline std::string* Data::_internal_mutable_entity_name() {
   
   return entity_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Data::release_entity_name() {
-  // @@protoc_insertion_point(field_release:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_release:request_proto.Data.entity_name)
   return entity_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Data::set_allocated_entity_name(std::string* entity_name) {
@@ -2254,7 +3060,7 @@ inline void Data::set_allocated_entity_name(std::string* entity_name) {
   }
   entity_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), entity_name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Data.entity_name)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Data.entity_name)
 }
 
 // string entity_value = 2;
@@ -2262,15 +3068,15 @@ inline void Data::clear_entity_value() {
   entity_value_.ClearToEmpty();
 }
 inline const std::string& Data::entity_value() const {
-  // @@protoc_insertion_point(field_get:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_get:request_proto.Data.entity_value)
   return _internal_entity_value();
 }
 inline void Data::set_entity_value(const std::string& value) {
   _internal_set_entity_value(value);
-  // @@protoc_insertion_point(field_set:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_set:request_proto.Data.entity_value)
 }
 inline std::string* Data::mutable_entity_value() {
-  // @@protoc_insertion_point(field_mutable:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_mutable:request_proto.Data.entity_value)
   return _internal_mutable_entity_value();
 }
 inline const std::string& Data::_internal_entity_value() const {
@@ -2284,27 +3090,27 @@ inline void Data::set_entity_value(std::string&& value) {
   
   entity_value_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Data.entity_value)
 }
 inline void Data::set_entity_value(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   entity_value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_set_char:request_proto.Data.entity_value)
 }
 inline void Data::set_entity_value(const char* value,
     size_t size) {
   
   entity_value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Data.entity_value)
 }
 inline std::string* Data::_internal_mutable_entity_value() {
   
   return entity_value_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Data::release_entity_value() {
-  // @@protoc_insertion_point(field_release:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_release:request_proto.Data.entity_value)
   return entity_value_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Data::set_allocated_entity_value(std::string* entity_value) {
@@ -2315,27 +3121,971 @@ inline void Data::set_allocated_entity_value(std::string* entity_value) {
   }
   entity_value_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), entity_value,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:protos.Data.entity_value)
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Data.entity_value)
 }
 
-// .protos.Data.SOURCE source = 3;
+// .request_proto.Data.SOURCE source = 3;
 inline void Data::clear_source() {
   source_ = 0;
 }
-inline ::protos::Data_SOURCE Data::_internal_source() const {
-  return static_cast< ::protos::Data_SOURCE >(source_);
+inline ::request_proto::Data_SOURCE Data::_internal_source() const {
+  return static_cast< ::request_proto::Data_SOURCE >(source_);
 }
-inline ::protos::Data_SOURCE Data::source() const {
-  // @@protoc_insertion_point(field_get:protos.Data.source)
+inline ::request_proto::Data_SOURCE Data::source() const {
+  // @@protoc_insertion_point(field_get:request_proto.Data.source)
   return _internal_source();
 }
-inline void Data::_internal_set_source(::protos::Data_SOURCE value) {
+inline void Data::_internal_set_source(::request_proto::Data_SOURCE value) {
   
   source_ = value;
 }
-inline void Data::set_source(::protos::Data_SOURCE value) {
+inline void Data::set_source(::request_proto::Data_SOURCE value) {
   _internal_set_source(value);
-  // @@protoc_insertion_point(field_set:protos.Data.source)
+  // @@protoc_insertion_point(field_set:request_proto.Data.source)
+}
+
+// -------------------------------------------------------------------
+
+// TransactionInfo
+
+// string tx_id = 1;
+inline void TransactionInfo::clear_tx_id() {
+  tx_id_.ClearToEmpty();
+}
+inline const std::string& TransactionInfo::tx_id() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.tx_id)
+  return _internal_tx_id();
+}
+inline void TransactionInfo::set_tx_id(const std::string& value) {
+  _internal_set_tx_id(value);
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.tx_id)
+}
+inline std::string* TransactionInfo::mutable_tx_id() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.tx_id)
+  return _internal_mutable_tx_id();
+}
+inline const std::string& TransactionInfo::_internal_tx_id() const {
+  return tx_id_.Get();
+}
+inline void TransactionInfo::_internal_set_tx_id(const std::string& value) {
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TransactionInfo::set_tx_id(std::string&& value) {
+  
+  tx_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.TransactionInfo.tx_id)
+}
+inline void TransactionInfo::set_tx_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.tx_id)
+}
+inline void TransactionInfo::set_tx_id(const char* value,
+    size_t size) {
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.tx_id)
+}
+inline std::string* TransactionInfo::_internal_mutable_tx_id() {
+  
+  return tx_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TransactionInfo::release_tx_id() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.tx_id)
+  return tx_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TransactionInfo::set_allocated_tx_id(std::string* tx_id) {
+  if (tx_id != nullptr) {
+    
+  } else {
+    
+  }
+  tx_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tx_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.tx_id)
+}
+
+// string ch_id = 2;
+inline void TransactionInfo::clear_ch_id() {
+  ch_id_.ClearToEmpty();
+}
+inline const std::string& TransactionInfo::ch_id() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.ch_id)
+  return _internal_ch_id();
+}
+inline void TransactionInfo::set_ch_id(const std::string& value) {
+  _internal_set_ch_id(value);
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.ch_id)
+}
+inline std::string* TransactionInfo::mutable_ch_id() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.ch_id)
+  return _internal_mutable_ch_id();
+}
+inline const std::string& TransactionInfo::_internal_ch_id() const {
+  return ch_id_.Get();
+}
+inline void TransactionInfo::_internal_set_ch_id(const std::string& value) {
+  
+  ch_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TransactionInfo::set_ch_id(std::string&& value) {
+  
+  ch_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.TransactionInfo.ch_id)
+}
+inline void TransactionInfo::set_ch_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  ch_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.ch_id)
+}
+inline void TransactionInfo::set_ch_id(const char* value,
+    size_t size) {
+  
+  ch_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.ch_id)
+}
+inline std::string* TransactionInfo::_internal_mutable_ch_id() {
+  
+  return ch_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TransactionInfo::release_ch_id() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.ch_id)
+  return ch_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TransactionInfo::set_allocated_ch_id(std::string* ch_id) {
+  if (ch_id != nullptr) {
+    
+  } else {
+    
+  }
+  ch_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ch_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.ch_id)
+}
+
+// string cc_id = 3;
+inline void TransactionInfo::clear_cc_id() {
+  cc_id_.ClearToEmpty();
+}
+inline const std::string& TransactionInfo::cc_id() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.cc_id)
+  return _internal_cc_id();
+}
+inline void TransactionInfo::set_cc_id(const std::string& value) {
+  _internal_set_cc_id(value);
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.cc_id)
+}
+inline std::string* TransactionInfo::mutable_cc_id() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.cc_id)
+  return _internal_mutable_cc_id();
+}
+inline const std::string& TransactionInfo::_internal_cc_id() const {
+  return cc_id_.Get();
+}
+inline void TransactionInfo::_internal_set_cc_id(const std::string& value) {
+  
+  cc_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TransactionInfo::set_cc_id(std::string&& value) {
+  
+  cc_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.TransactionInfo.cc_id)
+}
+inline void TransactionInfo::set_cc_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  cc_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.cc_id)
+}
+inline void TransactionInfo::set_cc_id(const char* value,
+    size_t size) {
+  
+  cc_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.cc_id)
+}
+inline std::string* TransactionInfo::_internal_mutable_cc_id() {
+  
+  return cc_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TransactionInfo::release_cc_id() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.cc_id)
+  return cc_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TransactionInfo::set_allocated_cc_id(std::string* cc_id) {
+  if (cc_id != nullptr) {
+    
+  } else {
+    
+  }
+  cc_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), cc_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.cc_id)
+}
+
+// string func_name = 4;
+inline void TransactionInfo::clear_func_name() {
+  func_name_.ClearToEmpty();
+}
+inline const std::string& TransactionInfo::func_name() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.func_name)
+  return _internal_func_name();
+}
+inline void TransactionInfo::set_func_name(const std::string& value) {
+  _internal_set_func_name(value);
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.func_name)
+}
+inline std::string* TransactionInfo::mutable_func_name() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.func_name)
+  return _internal_mutable_func_name();
+}
+inline const std::string& TransactionInfo::_internal_func_name() const {
+  return func_name_.Get();
+}
+inline void TransactionInfo::_internal_set_func_name(const std::string& value) {
+  
+  func_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TransactionInfo::set_func_name(std::string&& value) {
+  
+  func_name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.TransactionInfo.func_name)
+}
+inline void TransactionInfo::set_func_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  func_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.func_name)
+}
+inline void TransactionInfo::set_func_name(const char* value,
+    size_t size) {
+  
+  func_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.func_name)
+}
+inline std::string* TransactionInfo::_internal_mutable_func_name() {
+  
+  return func_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TransactionInfo::release_func_name() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.func_name)
+  return func_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TransactionInfo::set_allocated_func_name(std::string* func_name) {
+  if (func_name != nullptr) {
+    
+  } else {
+    
+  }
+  func_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), func_name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.func_name)
+}
+
+// repeated string args = 5;
+inline int TransactionInfo::_internal_args_size() const {
+  return args_.size();
+}
+inline int TransactionInfo::args_size() const {
+  return _internal_args_size();
+}
+inline void TransactionInfo::clear_args() {
+  args_.Clear();
+}
+inline std::string* TransactionInfo::add_args() {
+  // @@protoc_insertion_point(field_add_mutable:request_proto.TransactionInfo.args)
+  return _internal_add_args();
+}
+inline const std::string& TransactionInfo::_internal_args(int index) const {
+  return args_.Get(index);
+}
+inline const std::string& TransactionInfo::args(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.args)
+  return _internal_args(index);
+}
+inline std::string* TransactionInfo::mutable_args(int index) {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.args)
+  return args_.Mutable(index);
+}
+inline void TransactionInfo::set_args(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.args)
+  args_.Mutable(index)->assign(value);
+}
+inline void TransactionInfo::set_args(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.args)
+  args_.Mutable(index)->assign(std::move(value));
+}
+inline void TransactionInfo::set_args(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  args_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.args)
+}
+inline void TransactionInfo::set_args(int index, const char* value, size_t size) {
+  args_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.args)
+}
+inline std::string* TransactionInfo::_internal_add_args() {
+  return args_.Add();
+}
+inline void TransactionInfo::add_args(const std::string& value) {
+  args_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:request_proto.TransactionInfo.args)
+}
+inline void TransactionInfo::add_args(std::string&& value) {
+  args_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:request_proto.TransactionInfo.args)
+}
+inline void TransactionInfo::add_args(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  args_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:request_proto.TransactionInfo.args)
+}
+inline void TransactionInfo::add_args(const char* value, size_t size) {
+  args_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:request_proto.TransactionInfo.args)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+TransactionInfo::args() const {
+  // @@protoc_insertion_point(field_list:request_proto.TransactionInfo.args)
+  return args_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+TransactionInfo::mutable_args() {
+  // @@protoc_insertion_point(field_mutable_list:request_proto.TransactionInfo.args)
+  return &args_;
+}
+
+// .request_proto.TxWriteSet wset = 6;
+inline bool TransactionInfo::_internal_has_wset() const {
+  return this != internal_default_instance() && wset_ != nullptr;
+}
+inline bool TransactionInfo::has_wset() const {
+  return _internal_has_wset();
+}
+inline void TransactionInfo::clear_wset() {
+  if (GetArena() == nullptr && wset_ != nullptr) {
+    delete wset_;
+  }
+  wset_ = nullptr;
+}
+inline const ::request_proto::TxWriteSet& TransactionInfo::_internal_wset() const {
+  const ::request_proto::TxWriteSet* p = wset_;
+  return p != nullptr ? *p : reinterpret_cast<const ::request_proto::TxWriteSet&>(
+      ::request_proto::_TxWriteSet_default_instance_);
+}
+inline const ::request_proto::TxWriteSet& TransactionInfo::wset() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.wset)
+  return _internal_wset();
+}
+inline void TransactionInfo::unsafe_arena_set_allocated_wset(
+    ::request_proto::TxWriteSet* wset) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(wset_);
+  }
+  wset_ = wset;
+  if (wset) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:request_proto.TransactionInfo.wset)
+}
+inline ::request_proto::TxWriteSet* TransactionInfo::release_wset() {
+  
+  ::request_proto::TxWriteSet* temp = wset_;
+  wset_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::request_proto::TxWriteSet* TransactionInfo::unsafe_arena_release_wset() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.wset)
+  
+  ::request_proto::TxWriteSet* temp = wset_;
+  wset_ = nullptr;
+  return temp;
+}
+inline ::request_proto::TxWriteSet* TransactionInfo::_internal_mutable_wset() {
+  
+  if (wset_ == nullptr) {
+    auto* p = CreateMaybeMessage<::request_proto::TxWriteSet>(GetArena());
+    wset_ = p;
+  }
+  return wset_;
+}
+inline ::request_proto::TxWriteSet* TransactionInfo::mutable_wset() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.wset)
+  return _internal_mutable_wset();
+}
+inline void TransactionInfo::set_allocated_wset(::request_proto::TxWriteSet* wset) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete wset_;
+  }
+  if (wset) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(wset);
+    if (message_arena != submessage_arena) {
+      wset = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wset, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  wset_ = wset;
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.wset)
+}
+
+// .request_proto.Version version = 7;
+inline bool TransactionInfo::_internal_has_version() const {
+  return this != internal_default_instance() && version_ != nullptr;
+}
+inline bool TransactionInfo::has_version() const {
+  return _internal_has_version();
+}
+inline void TransactionInfo::clear_version() {
+  if (GetArena() == nullptr && version_ != nullptr) {
+    delete version_;
+  }
+  version_ = nullptr;
+}
+inline const ::request_proto::Version& TransactionInfo::_internal_version() const {
+  const ::request_proto::Version* p = version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::request_proto::Version&>(
+      ::request_proto::_Version_default_instance_);
+}
+inline const ::request_proto::Version& TransactionInfo::version() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.version)
+  return _internal_version();
+}
+inline void TransactionInfo::unsafe_arena_set_allocated_version(
+    ::request_proto::Version* version) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(version_);
+  }
+  version_ = version;
+  if (version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:request_proto.TransactionInfo.version)
+}
+inline ::request_proto::Version* TransactionInfo::release_version() {
+  
+  ::request_proto::Version* temp = version_;
+  version_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::request_proto::Version* TransactionInfo::unsafe_arena_release_version() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.version)
+  
+  ::request_proto::Version* temp = version_;
+  version_ = nullptr;
+  return temp;
+}
+inline ::request_proto::Version* TransactionInfo::_internal_mutable_version() {
+  
+  if (version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::request_proto::Version>(GetArena());
+    version_ = p;
+  }
+  return version_;
+}
+inline ::request_proto::Version* TransactionInfo::mutable_version() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.version)
+  return _internal_mutable_version();
+}
+inline void TransactionInfo::set_allocated_version(::request_proto::Version* version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete version_;
+  }
+  if (version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(version);
+    if (message_arena != submessage_arena) {
+      version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  version_ = version;
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.version)
+}
+
+// string timestamp = 8;
+inline void TransactionInfo::clear_timestamp() {
+  timestamp_.ClearToEmpty();
+}
+inline const std::string& TransactionInfo::timestamp() const {
+  // @@protoc_insertion_point(field_get:request_proto.TransactionInfo.timestamp)
+  return _internal_timestamp();
+}
+inline void TransactionInfo::set_timestamp(const std::string& value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:request_proto.TransactionInfo.timestamp)
+}
+inline std::string* TransactionInfo::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:request_proto.TransactionInfo.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline const std::string& TransactionInfo::_internal_timestamp() const {
+  return timestamp_.Get();
+}
+inline void TransactionInfo::_internal_set_timestamp(const std::string& value) {
+  
+  timestamp_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void TransactionInfo::set_timestamp(std::string&& value) {
+  
+  timestamp_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.TransactionInfo.timestamp)
+}
+inline void TransactionInfo::set_timestamp(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  timestamp_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.TransactionInfo.timestamp)
+}
+inline void TransactionInfo::set_timestamp(const char* value,
+    size_t size) {
+  
+  timestamp_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.TransactionInfo.timestamp)
+}
+inline std::string* TransactionInfo::_internal_mutable_timestamp() {
+  
+  return timestamp_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* TransactionInfo::release_timestamp() {
+  // @@protoc_insertion_point(field_release:request_proto.TransactionInfo.timestamp)
+  return timestamp_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void TransactionInfo::set_allocated_timestamp(std::string* timestamp) {
+  if (timestamp != nullptr) {
+    
+  } else {
+    
+  }
+  timestamp_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), timestamp,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.TransactionInfo.timestamp)
+}
+
+// -------------------------------------------------------------------
+
+// Version
+
+// string block_number = 1;
+inline void Version::clear_block_number() {
+  block_number_.ClearToEmpty();
+}
+inline const std::string& Version::block_number() const {
+  // @@protoc_insertion_point(field_get:request_proto.Version.block_number)
+  return _internal_block_number();
+}
+inline void Version::set_block_number(const std::string& value) {
+  _internal_set_block_number(value);
+  // @@protoc_insertion_point(field_set:request_proto.Version.block_number)
+}
+inline std::string* Version::mutable_block_number() {
+  // @@protoc_insertion_point(field_mutable:request_proto.Version.block_number)
+  return _internal_mutable_block_number();
+}
+inline const std::string& Version::_internal_block_number() const {
+  return block_number_.Get();
+}
+inline void Version::_internal_set_block_number(const std::string& value) {
+  
+  block_number_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Version::set_block_number(std::string&& value) {
+  
+  block_number_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Version.block_number)
+}
+inline void Version::set_block_number(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  block_number_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.Version.block_number)
+}
+inline void Version::set_block_number(const char* value,
+    size_t size) {
+  
+  block_number_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Version.block_number)
+}
+inline std::string* Version::_internal_mutable_block_number() {
+  
+  return block_number_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Version::release_block_number() {
+  // @@protoc_insertion_point(field_release:request_proto.Version.block_number)
+  return block_number_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Version::set_allocated_block_number(std::string* block_number) {
+  if (block_number != nullptr) {
+    
+  } else {
+    
+  }
+  block_number_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), block_number,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Version.block_number)
+}
+
+// string tx_id = 2;
+inline void Version::clear_tx_id() {
+  tx_id_.ClearToEmpty();
+}
+inline const std::string& Version::tx_id() const {
+  // @@protoc_insertion_point(field_get:request_proto.Version.tx_id)
+  return _internal_tx_id();
+}
+inline void Version::set_tx_id(const std::string& value) {
+  _internal_set_tx_id(value);
+  // @@protoc_insertion_point(field_set:request_proto.Version.tx_id)
+}
+inline std::string* Version::mutable_tx_id() {
+  // @@protoc_insertion_point(field_mutable:request_proto.Version.tx_id)
+  return _internal_mutable_tx_id();
+}
+inline const std::string& Version::_internal_tx_id() const {
+  return tx_id_.Get();
+}
+inline void Version::_internal_set_tx_id(const std::string& value) {
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Version::set_tx_id(std::string&& value) {
+  
+  tx_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Version.tx_id)
+}
+inline void Version::set_tx_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.Version.tx_id)
+}
+inline void Version::set_tx_id(const char* value,
+    size_t size) {
+  
+  tx_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Version.tx_id)
+}
+inline std::string* Version::_internal_mutable_tx_id() {
+  
+  return tx_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Version::release_tx_id() {
+  // @@protoc_insertion_point(field_release:request_proto.Version.tx_id)
+  return tx_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Version::set_allocated_tx_id(std::string* tx_id) {
+  if (tx_id != nullptr) {
+    
+  } else {
+    
+  }
+  tx_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tx_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Version.tx_id)
+}
+
+// -------------------------------------------------------------------
+
+// TxWriteSet
+
+// repeated .request_proto.Wset pb_wset = 1;
+inline int TxWriteSet::_internal_pb_wset_size() const {
+  return pb_wset_.size();
+}
+inline int TxWriteSet::pb_wset_size() const {
+  return _internal_pb_wset_size();
+}
+inline void TxWriteSet::clear_pb_wset() {
+  pb_wset_.Clear();
+}
+inline ::request_proto::Wset* TxWriteSet::mutable_pb_wset(int index) {
+  // @@protoc_insertion_point(field_mutable:request_proto.TxWriteSet.pb_wset)
+  return pb_wset_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >*
+TxWriteSet::mutable_pb_wset() {
+  // @@protoc_insertion_point(field_mutable_list:request_proto.TxWriteSet.pb_wset)
+  return &pb_wset_;
+}
+inline const ::request_proto::Wset& TxWriteSet::_internal_pb_wset(int index) const {
+  return pb_wset_.Get(index);
+}
+inline const ::request_proto::Wset& TxWriteSet::pb_wset(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.TxWriteSet.pb_wset)
+  return _internal_pb_wset(index);
+}
+inline ::request_proto::Wset* TxWriteSet::_internal_add_pb_wset() {
+  return pb_wset_.Add();
+}
+inline ::request_proto::Wset* TxWriteSet::add_pb_wset() {
+  // @@protoc_insertion_point(field_add:request_proto.TxWriteSet.pb_wset)
+  return _internal_add_pb_wset();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >&
+TxWriteSet::pb_wset() const {
+  // @@protoc_insertion_point(field_list:request_proto.TxWriteSet.pb_wset)
+  return pb_wset_;
+}
+
+// repeated .request_proto.Wset pv_wset = 2;
+inline int TxWriteSet::_internal_pv_wset_size() const {
+  return pv_wset_.size();
+}
+inline int TxWriteSet::pv_wset_size() const {
+  return _internal_pv_wset_size();
+}
+inline void TxWriteSet::clear_pv_wset() {
+  pv_wset_.Clear();
+}
+inline ::request_proto::Wset* TxWriteSet::mutable_pv_wset(int index) {
+  // @@protoc_insertion_point(field_mutable:request_proto.TxWriteSet.pv_wset)
+  return pv_wset_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >*
+TxWriteSet::mutable_pv_wset() {
+  // @@protoc_insertion_point(field_mutable_list:request_proto.TxWriteSet.pv_wset)
+  return &pv_wset_;
+}
+inline const ::request_proto::Wset& TxWriteSet::_internal_pv_wset(int index) const {
+  return pv_wset_.Get(index);
+}
+inline const ::request_proto::Wset& TxWriteSet::pv_wset(int index) const {
+  // @@protoc_insertion_point(field_get:request_proto.TxWriteSet.pv_wset)
+  return _internal_pv_wset(index);
+}
+inline ::request_proto::Wset* TxWriteSet::_internal_add_pv_wset() {
+  return pv_wset_.Add();
+}
+inline ::request_proto::Wset* TxWriteSet::add_pv_wset() {
+  // @@protoc_insertion_point(field_add:request_proto.TxWriteSet.pv_wset)
+  return _internal_add_pv_wset();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::request_proto::Wset >&
+TxWriteSet::pv_wset() const {
+  // @@protoc_insertion_point(field_list:request_proto.TxWriteSet.pv_wset)
+  return pv_wset_;
+}
+
+// -------------------------------------------------------------------
+
+// Wset
+
+// string key = 1;
+inline void Wset::clear_key() {
+  key_.ClearToEmpty();
+}
+inline const std::string& Wset::key() const {
+  // @@protoc_insertion_point(field_get:request_proto.Wset.key)
+  return _internal_key();
+}
+inline void Wset::set_key(const std::string& value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:request_proto.Wset.key)
+}
+inline std::string* Wset::mutable_key() {
+  // @@protoc_insertion_point(field_mutable:request_proto.Wset.key)
+  return _internal_mutable_key();
+}
+inline const std::string& Wset::_internal_key() const {
+  return key_.Get();
+}
+inline void Wset::_internal_set_key(const std::string& value) {
+  
+  key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Wset::set_key(std::string&& value) {
+  
+  key_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Wset.key)
+}
+inline void Wset::set_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.Wset.key)
+}
+inline void Wset::set_key(const char* value,
+    size_t size) {
+  
+  key_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Wset.key)
+}
+inline std::string* Wset::_internal_mutable_key() {
+  
+  return key_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Wset::release_key() {
+  // @@protoc_insertion_point(field_release:request_proto.Wset.key)
+  return key_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Wset::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  key_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), key,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Wset.key)
+}
+
+// string value = 2;
+inline void Wset::clear_value() {
+  value_.ClearToEmpty();
+}
+inline const std::string& Wset::value() const {
+  // @@protoc_insertion_point(field_get:request_proto.Wset.value)
+  return _internal_value();
+}
+inline void Wset::set_value(const std::string& value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:request_proto.Wset.value)
+}
+inline std::string* Wset::mutable_value() {
+  // @@protoc_insertion_point(field_mutable:request_proto.Wset.value)
+  return _internal_mutable_value();
+}
+inline const std::string& Wset::_internal_value() const {
+  return value_.Get();
+}
+inline void Wset::_internal_set_value(const std::string& value) {
+  
+  value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Wset::set_value(std::string&& value) {
+  
+  value_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Wset.value)
+}
+inline void Wset::set_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.Wset.value)
+}
+inline void Wset::set_value(const char* value,
+    size_t size) {
+  
+  value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Wset.value)
+}
+inline std::string* Wset::_internal_mutable_value() {
+  
+  return value_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Wset::release_value() {
+  // @@protoc_insertion_point(field_release:request_proto.Wset.value)
+  return value_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Wset::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
+    
+  } else {
+    
+  }
+  value_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Wset.value)
+}
+
+// string name_space = 3;
+inline void Wset::clear_name_space() {
+  name_space_.ClearToEmpty();
+}
+inline const std::string& Wset::name_space() const {
+  // @@protoc_insertion_point(field_get:request_proto.Wset.name_space)
+  return _internal_name_space();
+}
+inline void Wset::set_name_space(const std::string& value) {
+  _internal_set_name_space(value);
+  // @@protoc_insertion_point(field_set:request_proto.Wset.name_space)
+}
+inline std::string* Wset::mutable_name_space() {
+  // @@protoc_insertion_point(field_mutable:request_proto.Wset.name_space)
+  return _internal_mutable_name_space();
+}
+inline const std::string& Wset::_internal_name_space() const {
+  return name_space_.Get();
+}
+inline void Wset::_internal_set_name_space(const std::string& value) {
+  
+  name_space_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Wset::set_name_space(std::string&& value) {
+  
+  name_space_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:request_proto.Wset.name_space)
+}
+inline void Wset::set_name_space(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_space_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:request_proto.Wset.name_space)
+}
+inline void Wset::set_name_space(const char* value,
+    size_t size) {
+  
+  name_space_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:request_proto.Wset.name_space)
+}
+inline std::string* Wset::_internal_mutable_name_space() {
+  
+  return name_space_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Wset::release_name_space() {
+  // @@protoc_insertion_point(field_release:request_proto.Wset.name_space)
+  return name_space_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Wset::set_allocated_name_space(std::string* name_space) {
+  if (name_space != nullptr) {
+    
+  } else {
+    
+  }
+  name_space_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name_space,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:request_proto.Wset.name_space)
 }
 
 #ifdef __GNUC__
@@ -2347,22 +4097,30 @@ inline void Data::set_source(::protos::Data_SOURCE value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace protos
+}  // namespace request_proto
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::protos::CProof_CSTATE> : ::std::true_type {};
+template <> struct is_proto_enum< ::request_proto::CProof_CSTATE> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::protos::CProof_CSTATE>() {
-  return ::protos::CProof_CSTATE_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::request_proto::CProof_CSTATE>() {
+  return ::request_proto::CProof_CSTATE_descriptor();
 }
-template <> struct is_proto_enum< ::protos::Data_SOURCE> : ::std::true_type {};
+template <> struct is_proto_enum< ::request_proto::Data_SOURCE> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::protos::Data_SOURCE>() {
-  return ::protos::Data_SOURCE_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::request_proto::Data_SOURCE>() {
+  return ::request_proto::Data_SOURCE_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
